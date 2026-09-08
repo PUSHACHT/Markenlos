@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import imgPhoneCall from '../assets/imgPhoneCall.svg';
 import imgPlay from '../assets/imgPlay.svg';
 
@@ -30,7 +30,23 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const heroVideoId = "dQw4w9WgXcQ"; // Can be replaced with any YouTube ID
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const clientLogos = [
     { src: imgIdrCoaching1, alt: 'IDR Coaching' },
@@ -54,17 +70,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
     { src: imgVeltenToennies1, alt: 'Velten & Tönnies' },
   ];
 
+  // Subtle smooth parallax offset (hardware accelerated)
+  const parallaxOffset = Math.min(scrollY * 0.14, 120);
+
   return (
-    <header className="bg-[#303030] min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between pt-24 lg:pt-24 pb-4 lg:pb-6 px-6 sm:px-10 md:px-16 lg:px-24 w-full overflow-hidden">
-      <div className="w-full max-w-[1440px] mx-auto flex-1 flex flex-col justify-between gap-4 lg:gap-6">
+    <header className="bg-[#303030] min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-24 pb-4 lg:pb-6 px-4 sm:px-8 md:px-16 lg:px-24 w-full overflow-hidden relative">
+      <div 
+        className="w-full max-w-[1440px] mx-auto flex-1 flex flex-col justify-between gap-6 lg:gap-6 relative z-10 transition-transform duration-75 ease-out"
+        style={{
+          transform: `translate3d(0, ${parallaxOffset}px, 0)`,
+          willChange: 'transform',
+        }}
+      >
         
         {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center my-auto py-4 sm:py-0">
           
           {/* Left Column: Headlines & CTAs */}
           <div className="lg:col-span-7 flex flex-col gap-5 lg:gap-6 z-10">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[88px] 2xl:text-[96px] font-bold uppercase leading-[1.0] lg:leading-[1.02] tracking-[-0.5px] text-white select-none">
+            <div className="flex flex-col gap-3 sm:gap-4">
+              <h1 className="text-[34px] xs:text-[40px] sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[88px] 2xl:text-[96px] font-bold uppercase leading-[1.02] tracking-[-0.5px] text-white select-none break-words">
                 <span className="block">MARKENLOS</span>
                 <span className="block">MACHT</span>
                 <span className="block">
@@ -73,13 +98,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-[16px] xl:text-[18px] font-light leading-[24px] lg:leading-[27px] text-white/90 max-w-xl">
+              <p className="text-sm sm:text-base lg:text-[16px] xl:text-[18px] font-light leading-[22px] sm:leading-[26px] lg:leading-[27px] text-white/90 max-w-xl">
                 Wir helfen Unternehmen dabei, neue Mitarbeiter zu gewinnen, Kunden zu überzeugen und online einfach stark auszusehen. Wir kommen zu euch, packen an und liefern pünktlich ab.
               </p>
             </div>
 
-            {/* CTA Buttons - fully visible in viewport */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
+            {/* CTA Buttons - fully responsive and visible */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
               <button
                 onClick={() => onOpenContact('Beraten lassen')}
                 className="bg-[#39adca] hover:bg-[#2ba2bf] border-[1.5px] border-[#39adca] text-[#303030] font-semibold text-[15px] sm:text-[17px] leading-[24px] px-5 sm:px-7 py-3 sm:py-3.5 transition-all duration-200 cursor-pointer text-center"
@@ -104,10 +129,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             </div>
           </div>
 
-          {/* Right Column: Hero Video Showcase (16:9 Aspect Ratio) */}
-          <div className="lg:col-span-5 flex flex-col items-end w-full z-10">
+          {/* Right Column: Hero Video Showcase (Locked 16:9 Aspect Ratio on all devices) */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full z-10">
             <div 
-              className="bg-[#474747] border border-white aspect-video w-full max-w-[560px] flex items-center justify-center relative overflow-hidden group shadow-2xl transition-all"
+              className="bg-[#474747] border border-white aspect-video w-full max-w-[560px] flex items-center justify-center relative overflow-hidden group shadow-2xl transition-all rounded-[10px] sm:rounded-none"
             >
               {isPlaying ? (
                 <iframe
@@ -133,13 +158,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30 group-hover:bg-black/30 transition-colors" />
 
                   {/* YouTube watermark indicator badge top left */}
-                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1 rounded flex items-center gap-1.5 z-10">
+                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-black/70 backdrop-blur-sm text-white text-[10px] sm:text-[11px] font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 rounded flex items-center gap-1.5 z-10">
                     <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
                     <span>Showreel Preview</span>
                   </div>
 
                   {/* Play Badge */}
-                  <div className="relative z-10 w-[54px] sm:w-[64px] h-[54px] sm:h-[64px] rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
+                  <div className="relative z-10 w-[50px] sm:w-[64px] h-[50px] sm:h-[64px] rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
                     <img src={imgPlay} alt="Play" className="w-5 sm:w-6 h-5 sm:h-6 ml-1 object-contain group-hover:brightness-0" />
                   </div>
                 </div>
@@ -149,16 +174,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
 
         </div>
 
-        {/* Client Logos Marquee - always visible at viewport bottom */}
+        {/* Client Logos Marquee - visible at bottom */}
         <div className="pt-3 lg:pt-4 border-t border-white/10 w-full shrink-0 overflow-hidden">
           <div className="w-full relative overflow-hidden py-1">
-            <div className="flex gap-10 sm:gap-14 items-center animate-marquee">
+            <div className="flex gap-8 sm:gap-14 items-center animate-marquee">
               {[...clientLogos, ...clientLogos].map((logo, idx) => (
                 <div 
                   key={idx} 
-                  className="shrink-0 h-[32px] sm:h-[36px] flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="shrink-0 h-[28px] sm:h-[36px] flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
-                  <img src={logo.src} alt={logo.alt} className="max-h-[28px] sm:max-h-[32px] w-auto max-w-[150px] object-contain" />
+                  <img src={logo.src} alt={logo.alt} className="max-h-[24px] sm:max-h-[32px] w-auto max-w-[130px] sm:max-w-[150px] object-contain" />
                 </div>
               ))}
             </div>

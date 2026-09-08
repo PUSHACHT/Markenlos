@@ -104,10 +104,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
             {shortformReels.map((reel, idx) => (
-              <div key={idx} className="flex flex-col sm:flex-row gap-4 items-stretch group">
-                {/* 9:16 Video Frame Card with Inline Playback */}
+              <div key={idx} className="flex flex-col sm:flex-row items-center sm:items-stretch gap-4 group w-full">
+                {/* 9:16 Video Frame Card - Locked Aspect Ratio */}
                 <div 
-                  className="bg-[#474747] w-full sm:w-[215px] h-[383px] rounded-[12px] flex flex-col justify-between relative overflow-hidden shrink-0 shadow-lg transition-all duration-300 border border-transparent hover:border-[#39adca]"
+                  className="bg-[#474747] w-full max-w-[215px] aspect-[9/16] rounded-[12px] flex flex-col justify-between relative overflow-hidden shrink-0 shadow-lg transition-all duration-300 border border-transparent hover:border-[#39adca]"
                 >
                   {playingReelIndex === idx ? (
                     <iframe
@@ -133,18 +133,18 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
 
                       <div className="flex items-center justify-between z-10">
-                        <div className="w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white text-xs font-bold">
+                        <div className="w-7 h-7 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white text-[10px] font-bold">
                           {reel.company.substring(0, 2).toUpperCase()}
                         </div>
-                        <span className="bg-[#39adca] text-[#303030] text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">
+                        <span className="bg-[#39adca] text-[#303030] text-[9px] sm:text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">
                           {reel.badge}
                         </span>
                       </div>
 
                       {/* Center Play Trigger */}
                       <div className="absolute inset-0 flex items-center justify-center z-10">
-                        <div className="w-12 h-12 rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-xl">
-                          <Play className="w-5 h-5 text-white group-hover:text-[#303030] fill-current ml-0.5 transition-colors" />
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-xl">
+                          <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-[#303030] fill-current ml-0.5 transition-colors" />
                         </div>
                       </div>
 
@@ -160,22 +160,22 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                 </div>
 
                 {/* 9:16 Description Card */}
-                <div className="bg-[#303030] flex-1 sm:w-[255px] min-h-[383px] sm:min-h-[459px] rounded-[12px] px-5 py-6 text-white flex flex-col justify-between shadow-lg">
+                <div className="bg-[#303030] flex-1 w-full sm:w-[255px] min-h-[260px] sm:min-h-[383px] rounded-[12px] px-5 py-6 text-white flex flex-col justify-between shadow-lg">
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-[22px] sm:text-[24px] font-light leading-[30px] text-white">
+                    <h3 className="text-[20px] sm:text-[24px] font-light leading-[28px] sm:leading-[30px] text-white">
                       {reel.title}
                     </h3>
-                    <p className="text-[15px] font-light leading-[22px] text-white/80">
+                    <p className="text-[14px] sm:text-[15px] font-light leading-[20px] sm:leading-[22px] text-white/80">
                       {reel.desc}
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-white/10 flex flex-col gap-1">
-                    <p className="text-[13px] font-medium text-[#39adca] flex items-center gap-1">
+                    <p className="text-[12px] sm:text-[13px] font-medium text-[#39adca] flex items-center gap-1">
                       <TrendingUp className="w-3.5 h-3.5" />
                       <span>KPI & Performance:</span>
                     </p>
-                    <p className="text-[15px] font-light leading-[22px] text-white">
+                    <p className="text-[14px] sm:text-[15px] font-light leading-[20px] sm:leading-[22px] text-white">
                       {reel.kpi}
                     </p>
                   </div>
@@ -209,9 +209,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* 16:9 Video Card with Inline Playback */}
+            {/* 16:9 Video Card with Inline Playback - Locked Aspect Ratio */}
             <div 
-              className="lg:col-span-6 bg-[#474747] aspect-video min-h-[300px] lg:min-h-[388px] rounded-[12px] flex flex-col justify-between relative overflow-hidden shadow-xl group transition-all border border-transparent hover:border-[#39adca]"
+              className="lg:col-span-6 bg-[#474747] aspect-video w-full rounded-[12px] flex flex-col justify-between relative overflow-hidden shadow-xl group transition-all border border-transparent hover:border-[#39adca]"
             >
               {isPlayingLongform ? (
                 <iframe
@@ -246,17 +246,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
                   {/* Center Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className="w-16 h-16 rounded-full bg-[#303030]/90 border-2 border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
-                      <Play className="w-7 h-7 text-white group-hover:text-[#303030] fill-current ml-1 transition-colors" />
+                    <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-[#303030]/90 border-2 border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
+                      <Play className="w-6 sm:w-7 h-6 sm:h-7 text-white group-hover:text-[#303030] fill-current ml-1 transition-colors" />
                     </div>
                   </div>
 
                   <div className="z-10 bg-black/70 backdrop-blur-md p-3 rounded-lg flex items-center justify-between border border-white/10">
                     <div>
-                      <p className="text-white font-semibold text-sm">{longformProjects[longformIndex % longformProjects.length].company}</p>
-                      <p className="text-[#39adca] text-xs">High-End 4K Cinema Production</p>
+                      <p className="text-white font-semibold text-xs sm:text-sm">{longformProjects[longformIndex % longformProjects.length].company}</p>
+                      <p className="text-[#39adca] text-[11px] sm:text-xs">High-End 4K Cinema Production</p>
                     </div>
-                    <span className="text-white text-xs bg-[#39adca]/20 text-[#39adca] border border-[#39adca]/40 px-2.5 py-1 rounded">
+                    <span className="text-white text-[10px] sm:text-xs bg-[#39adca]/20 text-[#39adca] border border-[#39adca]/40 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded">
                       Direkt abspielen
                     </span>
                   </div>
@@ -265,19 +265,19 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             </div>
 
             {/* 16:9 Description Card */}
-            <div className="lg:col-span-6 bg-[#303030] min-h-[300px] lg:min-h-[388px] rounded-[12px] px-6 sm:px-8 py-8 text-white flex flex-col justify-between shadow-xl">
+            <div className="lg:col-span-6 bg-[#303030] min-h-[260px] lg:min-h-[388px] rounded-[12px] px-6 sm:px-8 py-8 text-white flex flex-col justify-between shadow-xl">
               <div className="flex flex-col gap-4">
-                <h3 className="text-[24px] sm:text-[32px] font-light leading-[36px] text-white">
+                <h3 className="text-[22px] sm:text-[32px] font-light leading-[32px] sm:leading-[36px] text-white">
                   {longformProjects[longformIndex % longformProjects.length].title}
                 </h3>
-                <p className="text-[16px] sm:text-[18px] font-light leading-[28px] text-white/85">
+                <p className="text-[15px] sm:text-[18px] font-light leading-[24px] sm:leading-[28px] text-white/85">
                   {longformProjects[longformIndex % longformProjects.length].desc}
                 </p>
               </div>
 
               <div className="pt-6 border-t border-white/10 flex flex-col gap-1">
                 <p className="text-[14px] font-medium text-[#39adca]">KPI:</p>
-                <p className="text-[16px] sm:text-[18px] font-light leading-[24px] text-white">
+                <p className="text-[15px] sm:text-[18px] font-light leading-[22px] sm:leading-[24px] text-white">
                   {longformProjects[longformIndex % longformProjects.length].kpi}
                 </p>
               </div>
@@ -316,15 +316,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Description Card (Left) */}
-            <div className="lg:col-span-5 bg-[#303030] min-h-[360px] lg:min-h-[393px] rounded-[12px] p-8 text-white flex flex-col justify-between shadow-lg order-2 lg:order-1">
+            <div className="lg:col-span-5 bg-[#303030] min-h-[300px] lg:min-h-[393px] rounded-[12px] p-6 sm:p-8 text-white flex flex-col justify-between shadow-lg order-2 lg:order-1">
               <div className="flex flex-col gap-4">
                 <div className="inline-block bg-[#39adca]/20 text-[#39adca] text-xs font-semibold px-2.5 py-1 rounded-md w-max">
                   Web & Brand Strategy
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
                   {webProjects[webIndex % webProjects.length].title}
                 </h3>
-                <p className="text-base font-light text-white/85 leading-relaxed">
+                <p className="text-sm sm:text-base font-light text-white/85 leading-relaxed">
                   {webProjects[webIndex % webProjects.length].desc}
                 </p>
               </div>
@@ -334,54 +334,54 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                   <ExternalLink className="w-4 h-4" />
                   <span>Wirkung & KPI:</span>
                 </div>
-                <p className="text-base font-medium text-white">
+                <p className="text-sm sm:text-base font-medium text-white">
                   {webProjects[webIndex % webProjects.length].kpi}
                 </p>
               </div>
             </div>
 
-            {/* Browser Window Frame (Right) */}
-            <div className="lg:col-span-7 bg-[#474747] border border-[#1a1a1a] rounded-[12px] min-h-[360px] lg:min-h-[393px] flex flex-col overflow-hidden shadow-2xl order-1 lg:order-2">
+            {/* Browser Window Frame (Right) - Locked 16:10 Screen Aspect Ratio on all devices */}
+            <div className="lg:col-span-7 bg-[#474747] border border-[#1a1a1a] rounded-[12px] aspect-[16/10] w-full max-w-full flex flex-col overflow-hidden shadow-2xl order-1 lg:order-2">
               {/* Browser Window Header */}
-              <div className="bg-white h-[28px] px-4 flex items-center justify-between shrink-0 border-b border-gray-200">
+              <div className="bg-white h-[26px] sm:h-[30px] px-3 sm:px-4 flex items-center justify-between shrink-0 border-b border-gray-200">
                 <div className="flex items-center">
-                  <img src={imgRow} alt="Browser Controls" className="h-2.5 object-contain" />
+                  <img src={imgRow} alt="Browser Controls" className="h-2 sm:h-2.5 object-contain" />
                 </div>
-                <div className="text-[11px] font-mono text-gray-500 bg-gray-100 px-4 py-0.5 rounded-sm">
+                <div className="text-[9px] sm:text-[11px] font-mono text-gray-500 bg-gray-100 px-2 sm:px-4 py-0.5 rounded-sm truncate max-w-[180px] sm:max-w-none">
                   https://kunde.markenlos.de
                 </div>
-                <div className="w-8" />
+                <div className="w-4 sm:w-8" />
               </div>
 
-              {/* Browser Web Content Mockup */}
-              <div className="flex-1 bg-[#222222] p-8 flex flex-col justify-between relative overflow-hidden group">
-                <div className="flex flex-col gap-4">
+              {/* Browser Web Content Mockup - Perfectly Proportional */}
+              <div className="flex-1 bg-[#222222] p-4 sm:p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden group">
+                <div className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex items-center justify-between">
-                    <div className="h-6 w-32 bg-white/20 rounded" />
-                    <div className="flex gap-3">
-                      <div className="h-4 w-12 bg-white/10 rounded" />
-                      <div className="h-4 w-12 bg-white/10 rounded" />
-                      <div className="h-4 w-16 bg-[#39adca] rounded" />
+                    <div className="h-4 sm:h-6 w-24 sm:w-32 bg-white/20 rounded" />
+                    <div className="flex gap-2 sm:gap-3">
+                      <div className="h-3 sm:h-4 w-8 sm:w-12 bg-white/10 rounded" />
+                      <div className="h-3 sm:h-4 w-8 sm:w-12 bg-white/10 rounded" />
+                      <div className="h-3 sm:h-4 w-12 sm:w-16 bg-[#39adca] rounded" />
                     </div>
                   </div>
 
-                  <div className="pt-6 flex flex-col gap-3">
-                    <div className="h-8 w-3/4 bg-white/90 rounded" />
-                    <div className="h-4 w-full bg-white/20 rounded" />
-                    <div className="h-4 w-2/3 bg-white/20 rounded" />
+                  <div className="pt-3 sm:pt-6 flex flex-col gap-2 sm:gap-3">
+                    <div className="h-5 sm:h-8 w-3/4 bg-white/90 rounded" />
+                    <div className="h-3 sm:h-4 w-full bg-white/20 rounded" />
+                    <div className="h-3 sm:h-4 w-2/3 bg-white/20 rounded" />
                   </div>
                 </div>
 
-                <div className="flex gap-4 pt-8">
+                <div className="flex gap-2 sm:gap-4 pt-4 sm:pt-8">
                   <button 
                     onClick={() => onOpenContact?.('Webprojekt')}
-                    className="h-10 w-36 bg-[#39adca] hover:bg-[#2ba2bf] rounded flex items-center justify-center text-[#303030] text-xs font-bold transition-colors cursor-pointer"
+                    className="h-8 sm:h-10 px-3 sm:px-5 bg-[#39adca] hover:bg-[#2ba2bf] rounded flex items-center justify-center text-[#303030] text-[10px] sm:text-xs font-bold transition-colors cursor-pointer"
                   >
                     Jetzt entdecken
                   </button>
                   <button 
                     onClick={() => onOpenContact?.('Portfolio Anfrage')}
-                    className="h-10 w-32 border border-white/30 hover:bg-white/10 rounded flex items-center justify-center text-white text-xs transition-colors cursor-pointer"
+                    className="h-8 sm:h-10 px-3 sm:px-5 border border-white/30 hover:bg-white/10 rounded flex items-center justify-center text-white text-[10px] sm:text-xs transition-colors cursor-pointer"
                   >
                     Portfolio
                   </button>
