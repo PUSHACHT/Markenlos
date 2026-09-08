@@ -194,34 +194,16 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
         {/* 1. Showcases Shortform (9:16) */}
         <div className="flex flex-col gap-6 relative">
-          <div className="flex items-center justify-between">
-            <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
-              Showcases Shortform (9:16)
-            </p>
-            <div className="hidden lg:flex items-center gap-2">
-              <button
-                onClick={handleShortformPrev}
-                className="w-9 h-9 rounded-full bg-white border border-[#303030]/20 hover:bg-[#39adca] hover:border-[#39adca] text-[#303030] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-                aria-label="Vorherige Reels"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleShortformNext}
-                className="w-9 h-9 rounded-full bg-white border border-[#303030]/20 hover:bg-[#39adca] hover:border-[#39adca] text-[#303030] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-                aria-label="Nächste Reels"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
+          <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
+            Showcases Shortform (9:16)
+          </p>
 
           {/* Carousel Wrapper with Desktop Floating Arrows */}
           <div className="relative">
             {/* Desktop Left Float Arrow */}
             <button
               onClick={handleShortformPrev}
-              className="hidden lg:flex absolute -left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 hover:bg-[#39adca] text-[#303030] border border-[#303030]/20 hover:border-[#39adca] items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer group"
+              className="hidden lg:flex absolute -left-7 xl:-left-12 2xl:-left-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 xl:w-12 xl:h-12 rounded-full bg-transparent hover:bg-[#39adca] text-[#303030]/35 hover:text-[#303030] border border-[#303030]/15 hover:border-[#39adca] items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer group"
               aria-label="Vorherige Reels"
             >
               <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-0.5" />
@@ -230,7 +212,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             {/* Desktop Right Float Arrow */}
             <button
               onClick={handleShortformNext}
-              className="hidden lg:flex absolute -right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 hover:bg-[#39adca] text-[#303030] border border-[#303030]/20 hover:border-[#39adca] items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer group"
+              className="hidden lg:flex absolute -right-7 xl:-right-12 2xl:-right-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 xl:w-12 xl:h-12 rounded-full bg-transparent hover:bg-[#39adca] text-[#303030]/35 hover:text-[#303030] border border-[#303030]/15 hover:border-[#39adca] items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer group"
               aria-label="Nächste Reels"
             >
               <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5" />
@@ -339,33 +321,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
         {/* 2. Showcases Longform (16:9) */}
         <div className="flex flex-col gap-6 pt-8 relative">
-          <div className="flex items-center justify-between">
-            <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
-              Showcases Longform (16:9)
-            </p>
-            <div className="hidden lg:flex items-center gap-2">
-              <button
-                onClick={handleLongformPrev}
-                className="w-9 h-9 rounded-full bg-white border border-[#303030]/20 hover:bg-[#39adca] hover:border-[#39adca] text-[#303030] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-                aria-label="Vorheriger Imagefilm"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleLongformNext}
-                className="w-9 h-9 rounded-full bg-white border border-[#303030]/20 hover:bg-[#39adca] hover:border-[#39adca] text-[#303030] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-                aria-label="Nächster Imagefilm"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
+          <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
+            Showcases Longform (16:9)
+          </p>
 
           <div className="relative">
             {/* Desktop Left Float Arrow */}
             <button
               onClick={handleLongformPrev}
-              className="hidden lg:flex absolute -left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 hover:bg-[#39adca] text-[#303030] border border-[#303030]/20 hover:border-[#39adca] items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer group"
+              className="hidden lg:flex absolute -left-7 xl:-left-12 2xl:-left-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 xl:w-12 xl:h-12 rounded-full bg-transparent hover:bg-[#39adca] text-[#303030]/35 hover:text-[#303030] border border-[#303030]/15 hover:border-[#39adca] items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer group"
               aria-label="Vorheriger Imagefilm"
             >
               <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-0.5" />
@@ -374,7 +338,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             {/* Desktop Right Float Arrow */}
             <button
               onClick={handleLongformNext}
-              className="hidden lg:flex absolute -right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 hover:bg-[#39adca] text-[#303030] border border-[#303030]/20 hover:border-[#39adca] items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer group"
+              className="hidden lg:flex absolute -right-7 xl:-right-12 2xl:-right-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 xl:w-12 xl:h-12 rounded-full bg-transparent hover:bg-[#39adca] text-[#303030]/35 hover:text-[#303030] border border-[#303030]/15 hover:border-[#39adca] items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer group"
               aria-label="Nächster Imagefilm"
             >
               <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5" />
@@ -482,38 +446,20 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
         {/* 3. Showcases Webprojekte */}
         <div className="flex flex-col gap-6 pt-10 relative">
-          <div className="flex items-center justify-between border-b border-[#303030]/10 pb-3">
-            <div>
-              <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase font-semibold">
-                Showcases Webprojekte
-              </span>
-              <p className="text-xs text-[#959595] mt-0.5">
-                Moderne Webseiten & Landing Pages
-              </p>
-            </div>
-            <div className="hidden lg:flex items-center gap-2">
-              <button
-                onClick={handleWebPrev}
-                className="w-9 h-9 rounded-full bg-white border border-[#303030]/20 hover:bg-[#39adca] hover:border-[#39adca] text-[#303030] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-                aria-label="Vorherige Webseite"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleWebNext}
-                className="w-9 h-9 rounded-full bg-white border border-[#303030]/20 hover:bg-[#39adca] hover:border-[#39adca] text-[#303030] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-                aria-label="Nächste Webseite"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+          <div className="border-b border-[#303030]/10 pb-3">
+            <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase font-semibold">
+              Showcases Webprojekte
+            </span>
+            <p className="text-xs text-[#959595] mt-0.5">
+              Moderne Webseiten & Landing Pages
+            </p>
           </div>
 
           <div className="relative">
             {/* Desktop Left Float Arrow */}
             <button
               onClick={handleWebPrev}
-              className="hidden lg:flex absolute -left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 hover:bg-[#39adca] text-[#303030] border border-[#303030]/20 hover:border-[#39adca] items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer group"
+              className="hidden lg:flex absolute -left-7 xl:-left-12 2xl:-left-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 xl:w-12 xl:h-12 rounded-full bg-transparent hover:bg-[#39adca] text-[#303030]/35 hover:text-[#303030] border border-[#303030]/15 hover:border-[#39adca] items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer group"
               aria-label="Vorherige Webseite"
             >
               <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-0.5" />
@@ -522,7 +468,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             {/* Desktop Right Float Arrow */}
             <button
               onClick={handleWebNext}
-              className="hidden lg:flex absolute -right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 hover:bg-[#39adca] text-[#303030] border border-[#303030]/20 hover:border-[#39adca] items-center justify-center transition-all duration-300 shadow-xl backdrop-blur-md cursor-pointer group"
+              className="hidden lg:flex absolute -right-7 xl:-right-12 2xl:-right-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 xl:w-12 xl:h-12 rounded-full bg-transparent hover:bg-[#39adca] text-[#303030]/35 hover:text-[#303030] border border-[#303030]/15 hover:border-[#39adca] items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer group"
               aria-label="Nächste Webseite"
             >
               <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5" />
