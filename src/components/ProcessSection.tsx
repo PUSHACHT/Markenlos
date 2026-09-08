@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const ProcessSection: React.FC = () => {
   const steps = [
@@ -29,40 +30,43 @@ export const ProcessSection: React.FC = () => {
       <div className="max-w-[1440px] mx-auto flex flex-col gap-12">
         
         {/* Section Header */}
-        <div className="flex flex-col gap-2">
-          <p className="text-[36px] font-extralight text-white leading-none">
-            Der
-          </p>
-          <h2 className="text-[40px] md:text-[48px] font-bold text-white tracking-tight leading-none">
-            Prozess
-          </h2>
-          <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-2">
-            Prozess
-          </span>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="flex flex-col gap-2">
+            <p className="text-[36px] font-extralight text-white leading-none">
+              Der
+            </p>
+            <h2 className="text-[40px] md:text-[48px] font-bold text-white tracking-tight leading-none">
+              Prozess
+            </h2>
+            <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-2">
+              Prozess
+            </span>
+          </div>
+        </ScrollReveal>
 
         {/* 4 Process Step Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step) => (
-            <div 
-              key={step.num}
-              className="bg-[#474747] border border-[#1a1a1a] p-6 lg:p-8 flex flex-col gap-4 rounded-none shadow-lg relative group hover:border-[#39adca] transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="flex flex-col gap-1">
-                <span className="text-5xl lg:text-6xl font-extrabold text-white tracking-tighter">
-                  {step.num}
-                </span>
-                <h3 className="text-2xl lg:text-3xl font-bold text-[#39adca] tracking-tight">
-                  {step.title}
-                </h3>
+          {steps.map((step, idx) => (
+            <ScrollReveal key={step.num} direction="up" delay={idx * 120} duration={750}>
+              <div 
+                className="bg-[#474747] border border-[#1a1a1a] p-6 lg:p-8 flex flex-col gap-4 rounded-none shadow-lg relative group hover:border-[#39adca] transition-all duration-300 hover:-translate-y-1 h-full"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="text-5xl lg:text-6xl font-extrabold text-white tracking-tighter">
+                    {step.num}
+                  </span>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-[#39adca] tracking-tight">
+                    {step.title}
+                  </h3>
+                </div>
+
+                <div className="w-full h-[1px] bg-white/70" />
+
+                <p className="text-[16px] font-light text-white/90 leading-relaxed pt-1">
+                  {step.desc}
+                </p>
               </div>
-
-              <div className="w-full h-[1px] bg-white/70" />
-
-              <p className="text-[16px] font-light text-white/90 leading-relaxed pt-1">
-                {step.desc}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

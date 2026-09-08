@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import imgRow from '../assets/imgRow.svg';
 import { Play, TrendingUp, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ProjectsSectionProps {
   onOpenVideo?: (url?: string) => void;
@@ -183,20 +184,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
       <div className="w-full max-w-[1440px] mx-auto flex flex-col gap-12 lg:gap-16">
         
         {/* Section Header */}
-        <div className="flex flex-col">
-          <p className="text-[32px] sm:text-[36px] font-extralight leading-[48px] text-[#303030]">
-            Unsere
-          </p>
-          <h2 className="text-[36px] sm:text-[40px] font-bold leading-[48px] text-[#303030] tracking-[-0.5px]">
-            Projektlandschaft
-          </h2>
-        </div>
+        <ScrollReveal direction="up" distance={25}>
+          <div className="flex flex-col">
+            <p className="text-[32px] sm:text-[36px] font-extralight leading-[48px] text-[#303030]">
+              Unsere
+            </p>
+            <h2 className="text-[36px] sm:text-[40px] font-bold leading-[48px] text-[#303030] tracking-[-0.5px]">
+              Projektlandschaft
+            </h2>
+          </div>
+        </ScrollReveal>
 
         {/* 1. Showcases Shortform (9:16) */}
-        <div className="flex flex-col gap-6 relative">
-          <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
-            Showcases Shortform (9:16)
-          </p>
+        <ScrollReveal direction="up" distance={30} delay={100}>
+          <div className="flex flex-col gap-6 relative">
+            <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
+              Showcases Shortform (9:16)
+            </p>
 
           {/* Carousel Wrapper with Desktop Floating Arrows */}
           <div className="relative">
@@ -318,8 +322,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             ))}
           </div>
         </div>
+        </ScrollReveal>
 
         {/* 2. Showcases Longform (16:9) */}
+        <ScrollReveal direction="up" distance={30} delay={100}>
         <div className="flex flex-col gap-6 pt-8 relative">
           <p className="text-[14px] font-light leading-[20px] text-[#39adca]">
             Showcases Longform (16:9)
@@ -442,9 +448,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             ))}
           </div>
         </div>
-
+        </ScrollReveal>
 
         {/* 3. Showcases Webprojekte */}
+        <ScrollReveal direction="up" distance={30} delay={100}>
         <div className="flex flex-col gap-6 pt-10 relative">
           <div className="border-b border-[#303030]/10 pb-3">
             <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase font-semibold">
@@ -565,6 +572,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             ))}
           </div>
         </div>
+        </ScrollReveal>
 
       </div>
     </section>

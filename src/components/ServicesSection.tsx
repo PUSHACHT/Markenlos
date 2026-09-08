@@ -2,6 +2,7 @@ import React from 'react';
 import imgArrowRight from '../assets/imgArrowRight.svg';
 import imgHubRing from '../assets/imgHubRing.svg';
 import imgHubRingStroke from '../assets/imgHubRingStroke.svg';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ServicesSectionProps {
   onOpenContact: (service?: string) => void;
@@ -40,17 +41,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
       <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
         
         {/* Section Header */}
-        <div className="flex flex-col gap-2">
-          <p className="text-[36px] font-extralight text-[#303030] leading-none">
-            Unsere
-          </p>
-          <h2 className="text-[40px] md:text-[48px] font-bold text-[#303030] tracking-tight leading-none">
-            Dienstleistungen
-          </h2>
-          <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-2">
-            Services
-          </span>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="flex flex-col gap-2">
+            <p className="text-[36px] font-extralight text-[#303030] leading-none">
+              Unsere
+            </p>
+            <h2 className="text-[40px] md:text-[48px] font-bold text-[#303030] tracking-tight leading-none">
+              Dienstleistungen
+            </h2>
+            <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-2">
+              Services
+            </span>
+          </div>
+        </ScrollReveal>
 
         {/* Services Hub & Cards Layout */}
         <div className="relative">
@@ -74,32 +77,32 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
 
             {/* Left Column: Imagefilm & Webdesign */}
             <div className="flex flex-col gap-12 z-10 relative">
-              {services.filter(s => s.side === 'left').map((service) => (
-                <div 
-                  key={service.id}
-                  className="bg-white border border-[#2a2725]/25 rounded-[24px] p-8 shadow-[0px_12px_14px_rgba(0,0,0,0.04)] flex flex-col gap-4 hover:border-[#39adca] transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="w-14 h-1 bg-[#39adca] rounded-full" />
-                  <h3 className="text-2xl xl:text-3xl font-bold text-[#303030] tracking-tight leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="text-base font-light text-[#303030]/90 leading-relaxed">
-                    {service.desc}
-                  </p>
-                  <button 
-                    onClick={() => onOpenContact(service.title)}
-                    className="flex items-center gap-2 text-xs font-light text-[#39adca] tracking-wider uppercase pt-2 cursor-pointer hover:underline group"
+              {services.filter(s => s.side === 'left').map((service, idx) => (
+                <ScrollReveal key={service.id} direction="left" delay={idx * 150} duration={800}>
+                  <div 
+                    className="bg-white border border-[#2a2725]/25 rounded-[24px] p-8 shadow-[0px_12px_14px_rgba(0,0,0,0.04)] flex flex-col gap-4 hover:border-[#39adca] transition-all duration-300 hover:shadow-xl"
                   >
-                    <span>Mehr erfahren</span>
-                    <img src={imgArrowRight} alt="" className="w-3 h-2.5 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </div>
+                    <div className="w-14 h-1 bg-[#39adca] rounded-full" />
+                    <h3 className="text-2xl xl:text-3xl font-bold text-[#303030] tracking-tight leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-base font-light text-[#303030]/90 leading-relaxed">
+                      {service.desc}
+                    </p>
+                    <button 
+                      onClick={() => onOpenContact(service.title)}
+                      className="flex items-center gap-2 text-xs font-light text-[#39adca] tracking-wider uppercase pt-2 cursor-pointer hover:underline group"
+                    >
+                      <span>Mehr erfahren</span>
+                      <img src={imgArrowRight} alt="" className="w-3 h-2.5 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
 
             {/* Center Column: Hub Ring */}
-            <div className="flex items-center justify-center relative p-8 z-10">
-              {/* Rotating outer ring */}
+            <ScrollReveal direction="none" delay={200} duration={900} className="flex items-center justify-center relative p-8 z-10">
               <div className="relative w-[340px] h-[340px] flex items-center justify-center">
                 <img 
                   src={imgHubRing} 
@@ -122,30 +125,31 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Column: Recruiting & Social Media */}
             <div className="flex flex-col gap-12 z-10 relative">
-              {services.filter(s => s.side === 'right').map((service) => (
-                <div 
-                  key={service.id}
-                  className="bg-white border border-[#2a2725]/25 rounded-[24px] p-8 shadow-[0px_12px_14px_rgba(0,0,0,0.04)] flex flex-col gap-4 hover:border-[#39adca] transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="w-14 h-1 bg-[#39adca] rounded-full" />
-                  <h3 className="text-2xl xl:text-3xl font-bold text-[#303030] tracking-tight leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="text-base font-light text-[#303030]/90 leading-relaxed">
-                    {service.desc}
-                  </p>
-                  <button 
-                    onClick={() => onOpenContact(service.title)}
-                    className="flex items-center gap-2 text-xs font-light text-[#39adca] tracking-wider uppercase pt-2 cursor-pointer hover:underline group"
+              {services.filter(s => s.side === 'right').map((service, idx) => (
+                <ScrollReveal key={service.id} direction="right" delay={idx * 150} duration={800}>
+                  <div 
+                    className="bg-white border border-[#2a2725]/25 rounded-[24px] p-8 shadow-[0px_12px_14px_rgba(0,0,0,0.04)] flex flex-col gap-4 hover:border-[#39adca] transition-all duration-300 hover:shadow-xl"
                   >
-                    <span>Mehr erfahren</span>
-                    <img src={imgArrowRight} alt="" className="w-3 h-2.5 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </div>
+                    <div className="w-14 h-1 bg-[#39adca] rounded-full" />
+                    <h3 className="text-2xl xl:text-3xl font-bold text-[#303030] tracking-tight leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-base font-light text-[#303030]/90 leading-relaxed">
+                      {service.desc}
+                    </p>
+                    <button 
+                      onClick={() => onOpenContact(service.title)}
+                      className="flex items-center gap-2 text-xs font-light text-[#39adca] tracking-wider uppercase pt-2 cursor-pointer hover:underline group"
+                    >
+                      <span>Mehr erfahren</span>
+                      <img src={imgArrowRight} alt="" className="w-3 h-2.5 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
 
@@ -153,26 +157,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
 
           {/* Mobile & Tablet Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:hidden">
-            {services.map((service) => (
-              <div 
-                key={service.id}
-                className="bg-white border border-[#2a2725]/25 rounded-[24px] p-8 shadow-[0px_12px_14px_rgba(0,0,0,0.04)] flex flex-col gap-4 hover:border-[#39adca] transition-all"
-              >
-                <div className="w-14 h-1 bg-[#39adca] rounded-full" />
-                <h3 className="text-2xl font-bold text-[#303030]">
-                  {service.title}
-                </h3>
-                <p className="text-base font-light text-[#303030]/90 leading-relaxed">
-                  {service.desc}
-                </p>
-                <button 
-                  onClick={() => onOpenContact(service.title)}
-                  className="flex items-center gap-2 text-xs font-light text-[#39adca] tracking-wider uppercase pt-2 group"
+            {services.map((service, idx) => (
+              <ScrollReveal key={service.id} direction="up" delay={idx * 100} duration={700}>
+                <div 
+                  className="bg-white border border-[#2a2725]/25 rounded-[24px] p-8 shadow-[0px_12px_14px_rgba(0,0,0,0.04)] flex flex-col gap-4 hover:border-[#39adca] transition-all"
                 >
-                  <span>Mehr erfahren</span>
-                  <img src={imgArrowRight} alt="" className="w-3 h-2.5 transition-transform group-hover:translate-x-1" />
-                </button>
-              </div>
+                  <div className="w-14 h-1 bg-[#39adca] rounded-full" />
+                  <h3 className="text-2xl font-bold text-[#303030]">
+                    {service.title}
+                  </h3>
+                  <p className="text-base font-light text-[#303030]/90 leading-relaxed">
+                    {service.desc}
+                  </p>
+                  <button 
+                    onClick={() => onOpenContact(service.title)}
+                    className="flex items-center gap-2 text-xs font-light text-[#39adca] tracking-wider uppercase pt-2 group"
+                  >
+                    <span>Mehr erfahren</span>
+                    <img src={imgArrowRight} alt="" className="w-3 h-2.5 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-
+import { ScrollReveal } from './ScrollReveal';
 
 interface PricingSectionProps {
   onOpenContact: (plan?: string) => void;
@@ -12,35 +12,38 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
       <div className="max-w-[1440px] mx-auto flex flex-col gap-12">
         
         {/* Section Header */}
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <p className="text-[36px] font-extralight text-[#303030] leading-none">
-              Unsere
-            </p>
-            <h2 className="text-[40px] md:text-[48px] font-bold text-[#303030] tracking-tight leading-none">
-              Pakete
-            </h2>
-          </div>
+        <ScrollReveal direction="up" distance={25}>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <p className="text-[36px] font-extralight text-[#303030] leading-none">
+                Unsere
+              </p>
+              <h2 className="text-[40px] md:text-[48px] font-bold text-[#303030] tracking-tight leading-none">
+                Pakete
+              </h2>
+            </div>
 
-          <div className="flex flex-col gap-2 max-w-3xl">
-            <h3 className="text-2xl md:text-3xl font-semibold text-[#303030]">
-              Kein Versteckspiel beim Budget.
-            </h3>
-            <p className="text-base md:text-[18px] font-light text-[#303030]/85 leading-relaxed">
-              Wir finden es selbst anstrengend, wenn man erst drei Telefonate führen muss, um überhaupt eine Zahl zu hören. Deshalb stehen hier unsere Startpreise. Wenn die Richtung für euch passt, sprechen wir über die Details.
-            </p>
-          </div>
+            <div className="flex flex-col gap-2 max-w-3xl">
+              <h3 className="text-2xl md:text-3xl font-semibold text-[#303030]">
+                Kein Versteckspiel beim Budget.
+              </h3>
+              <p className="text-base md:text-[18px] font-light text-[#303030]/85 leading-relaxed">
+                Wir finden es selbst anstrengend, wenn man erst drei Telefonate führen muss, um überhaupt eine Zahl zu hören. Deshalb stehen hier unsere Startpreise. Wenn die Richtung für euch passt, sprechen wir über die Details.
+              </p>
+            </div>
 
-          <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-1">
-            Preise
-          </span>
-        </div>
+            <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-1">
+              Preise
+            </span>
+          </div>
+        </ScrollReveal>
 
         {/* Pricing Row 1: 3 Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           
           {/* Card 1: Einzelprojekte & Einstieg */}
-          <div className="bg-white border border-[#1a1a1a]/40 rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_8px_12px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all">
+          <ScrollReveal direction="up" distance={30} delay={100} className="flex">
+          <div className="w-full bg-white border border-[#1a1a1a]/40 rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_8px_12px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
                 <h3 className="text-3xl lg:text-4xl font-bold text-[#303030] tracking-tight">
@@ -78,9 +81,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
               Projekt anfragen
             </button>
           </div>
+          </ScrollReveal>
 
           {/* Card 2: Content-Flatrate (HIGHLIGHTED) */}
-          <div className="bg-white border-t-4 border-t-[#39adca] border-x border-b border-[#39adca] rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_12px_24px_rgba(57,173,202,0.15)] relative transform lg:-translate-y-2">
+          <ScrollReveal direction="up" distance={30} delay={200} className="flex">
+          <div className="w-full bg-white border-t-4 border-t-[#39adca] border-x border-b border-[#39adca] rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_12px_24px_rgba(57,173,202,0.15)] relative transform lg:-translate-y-2">
             <div className="flex flex-col gap-6">
               <div className="flex items-center justify-between">
                 <span className="text-[14px] font-light text-[#39adca] uppercase font-semibold">
@@ -133,9 +138,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
               Erstgespräch vereinbaren
             </button>
           </div>
+          </ScrollReveal>
 
           {/* Card 3: Enterprise & Campaign */}
-          <div className="bg-white border border-[#1a1a1a]/40 rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_8px_12px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all">
+          <ScrollReveal direction="up" distance={30} delay={300} className="flex">
+          <div className="w-full bg-white border border-[#1a1a1a]/40 rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_8px_12px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
                 <h3 className="text-3xl lg:text-4xl font-bold text-[#303030] tracking-tight">
@@ -185,6 +192,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
               Enterprise-Angebot anfordern
             </button>
           </div>
+          </ScrollReveal>
 
         </div>
 
@@ -192,7 +200,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch pt-4">
           
           {/* Web Card 1: Statische Landing Page */}
-          <div className="bg-white border border-[#1a1a1a]/40 rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_8px_12px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all">
+          <ScrollReveal direction="up" distance={30} delay={100} className="flex">
+          <div className="w-full bg-white border border-[#1a1a1a]/40 rounded-[16px] p-8 md:p-10 flex flex-col justify-between shadow-[0px_8px_12px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-1">
                 <h3 className="text-3xl lg:text-4xl font-bold text-[#303030] tracking-tight">
@@ -226,9 +235,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
               Projekt anfragen
             </button>
           </div>
+          </ScrollReveal>
 
           {/* Web Card 2: Webprojekt (DARK CARD WITH ACCENT BORDER) */}
-          <div className="bg-[#303030] border-[1.5px] border-[#39adca] rounded-[16px] p-8 md:p-10 flex flex-col justify-between text-white shadow-[0px_12px_24px_rgba(0,0,0,0.25)] relative">
+          <ScrollReveal direction="up" distance={30} delay={200} className="flex">
+          <div className="w-full bg-[#303030] border-[1.5px] border-[#39adca] rounded-[16px] p-8 md:p-10 flex flex-col justify-between text-white shadow-[0px_12px_24px_rgba(0,0,0,0.25)] relative">
             <div className="flex flex-col gap-6">
               <div className="flex items-center justify-between">
                 <span className="text-[14px] font-light text-[#39adca] uppercase font-semibold">
@@ -281,6 +292,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
               Angebot anfordern
             </button>
           </div>
+          </ScrollReveal>
 
         </div>
 
