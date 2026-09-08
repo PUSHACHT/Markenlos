@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
           {/* Left Column: Headlines & CTAs */}
           <div className="lg:col-span-7 flex flex-col gap-5 lg:gap-6 z-10">
             <div className="flex flex-col gap-3 sm:gap-4">
-              <h1 className="text-[34px] xs:text-[40px] sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[88px] 2xl:text-[96px] font-bold uppercase leading-[1.02] tracking-[-0.5px] text-white select-none break-words">
+              <h1 className="text-[30px] xs:text-[35px] sm:text-[42px] md:text-[52px] lg:text-[63px] xl:text-[77px] 2xl:text-[84px] font-bold uppercase leading-[1.02] tracking-[-0.5px] text-white select-none break-words">
                 <span className="block">MARKENLOS</span>
                 <span className="block">MACHT</span>
                 <span className="block">
