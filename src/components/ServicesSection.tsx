@@ -2,8 +2,6 @@ import React from 'react';
 import imgArrowRight from '../assets/imgArrowRight.svg';
 import imgHubRing from '../assets/imgHubRing.svg';
 import imgHubRingStroke from '../assets/imgHubRingStroke.svg';
-import imgGroupServices1 from '../assets/imgGroupServices1.svg';
-import imgGroupServices2 from '../assets/imgGroupServices2.svg';
 
 interface ServicesSectionProps {
   onOpenContact: (service?: string) => void;
@@ -57,10 +55,25 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
         {/* Services Hub & Cards Layout */}
         <div className="relative">
           {/* Desktop Central Diagram View */}
-          <div className="hidden lg:grid grid-cols-3 gap-8 items-center py-12">
+          <div className="hidden lg:grid grid-cols-3 gap-8 items-center py-12 relative">
             
+            {/* SVG Connecting Lines spanning seamlessly from cards to center hub */}
+            <svg 
+              className="absolute inset-0 w-full h-full pointer-events-none z-0" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Top Left (Imagefilm) to Center Hub */}
+              <line x1="32%" y1="25%" x2="50%" y2="50%" stroke="#474747" strokeWidth="1.5" />
+              {/* Bottom Left (Webdesign) to Center Hub */}
+              <line x1="32%" y1="75%" x2="50%" y2="50%" stroke="#474747" strokeWidth="1.5" />
+              {/* Top Right (Recruiting) to Center Hub */}
+              <line x1="68%" y1="25%" x2="50%" y2="50%" stroke="#474747" strokeWidth="1.5" />
+              {/* Bottom Right (Social Media) to Center Hub */}
+              <line x1="68%" y1="75%" x2="50%" y2="50%" stroke="#474747" strokeWidth="1.5" />
+            </svg>
+
             {/* Left Column: Imagefilm & Webdesign */}
-            <div className="flex flex-col gap-12 z-10">
+            <div className="flex flex-col gap-12 z-10 relative">
               {services.filter(s => s.side === 'left').map((service) => (
                 <div 
                   key={service.id}
@@ -85,14 +98,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
             </div>
 
             {/* Center Column: Hub Ring */}
-            <div className="flex items-center justify-center relative p-8">
-              {/* Outer decorative SVG branches */}
-              <div className="absolute inset-0 flex flex-col items-center justify-between pointer-events-none scale-125 z-0">
-                <img src={imgGroupServices1} alt="" className="w-full object-contain opacity-80" />
-                <img src={imgGroupServices2} alt="" className="w-full object-contain opacity-80 mt-12" />
-              </div>
-
-
+            <div className="flex items-center justify-center relative p-8 z-10">
               {/* Rotating outer ring */}
               <div className="relative w-[340px] h-[340px] flex items-center justify-center">
                 <img 
@@ -119,7 +125,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenContact 
             </div>
 
             {/* Right Column: Recruiting & Social Media */}
-            <div className="flex flex-col gap-12 z-10">
+            <div className="flex flex-col gap-12 z-10 relative">
               {services.filter(s => s.side === 'right').map((service) => (
                 <div 
                   key={service.id}
