@@ -55,16 +55,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
   ];
 
   return (
-    <header className="bg-[#303030] pt-24 sm:pt-32 lg:pt-[136px] pb-16 lg:pb-[78px] px-6 sm:px-10 md:px-16 lg:px-24 w-full overflow-hidden">
-      <div className="w-full max-w-[1440px] mx-auto flex flex-col gap-12 lg:gap-16">
+    <header className="bg-[#303030] min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between pt-24 lg:pt-24 pb-4 lg:pb-6 px-6 sm:px-10 md:px-16 lg:px-24 w-full overflow-hidden">
+      <div className="w-full max-w-[1440px] mx-auto flex-1 flex flex-col justify-between gap-4 lg:gap-6">
         
         {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center my-auto">
           
           {/* Left Column: Headlines & CTAs */}
-          <div className="lg:col-span-7 flex flex-col gap-8 z-10">
-            <div className="flex flex-col gap-6">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[92px] xl:text-[112px] font-bold uppercase leading-[1.0] lg:leading-[120px] tracking-[-0.5px] text-white select-none">
+          <div className="lg:col-span-7 flex flex-col gap-5 lg:gap-6 z-10">
+            <div className="flex flex-col gap-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[88px] 2xl:text-[96px] font-bold uppercase leading-[1.0] lg:leading-[1.02] tracking-[-0.5px] text-white select-none">
                 <span className="block">MARKENLOS</span>
                 <span className="block">MACHT</span>
                 <span className="block">
@@ -73,31 +73,31 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-[18px] font-light leading-[28px] text-white max-w-2xl">
+              <p className="text-sm sm:text-base lg:text-[16px] xl:text-[18px] font-light leading-[24px] lg:leading-[27px] text-white/90 max-w-xl">
                 Wir helfen Unternehmen dabei, neue Mitarbeiter zu gewinnen, Kunden zu überzeugen und online einfach stark auszusehen. Wir kommen zu euch, packen an und liefern pünktlich ab.
               </p>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            {/* CTA Buttons - fully visible in viewport */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
               <button
                 onClick={() => onOpenContact('Beraten lassen')}
-                className="bg-[#39adca] hover:bg-[#2ba2bf] border-[1.5px] border-[#39adca] text-[#303030] font-semibold text-[16px] sm:text-[18px] leading-[28px] px-6 sm:px-8 py-3.5 sm:py-4 transition-all duration-200 cursor-pointer text-center"
+                className="bg-[#39adca] hover:bg-[#2ba2bf] border-[1.5px] border-[#39adca] text-[#303030] font-semibold text-[15px] sm:text-[17px] leading-[24px] px-5 sm:px-7 py-3 sm:py-3.5 transition-all duration-200 cursor-pointer text-center"
               >
                 Beraten lassen
               </button>
 
               <button
                 onClick={() => onOpenContact('Klaas Anrufen')}
-                className="bg-[#303030] hover:bg-white/5 border-[1.5px] border-[#39adca] text-[#39adca] font-semibold text-[16px] sm:text-[18px] leading-[28px] px-6 sm:px-8 py-3.5 sm:py-4 flex items-center justify-center gap-3 transition-all duration-200 cursor-pointer"
+                className="bg-[#303030] hover:bg-white/5 border-[1.5px] border-[#39adca] text-[#39adca] font-semibold text-[15px] sm:text-[17px] leading-[24px] px-5 sm:px-7 py-3 sm:py-3.5 flex items-center justify-center gap-2.5 transition-all duration-200 cursor-pointer"
               >
-                <img src={imgPhoneCall} alt="" className="w-5 h-5 object-contain" />
+                <img src={imgPhoneCall} alt="" className="w-4 h-4 object-contain" />
                 <span>Klaas Anrufen</span>
               </button>
 
               <a
                 href="#testimonials"
-                className="bg-[#303030] hover:bg-white/5 border-[1.5px] border-white text-white font-semibold text-[16px] sm:text-[18px] leading-[28px] px-6 sm:px-8 py-3.5 sm:py-4 transition-all duration-200 text-center inline-flex items-center justify-center"
+                className="bg-[#303030] hover:bg-white/5 border-[1.5px] border-white text-white font-semibold text-[15px] sm:text-[17px] leading-[24px] px-5 sm:px-7 py-3 sm:py-3.5 transition-all duration-200 text-center inline-flex items-center justify-center"
               >
                 Bewertungen einsehen
               </a>
@@ -105,9 +105,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
           </div>
 
           {/* Right Column: Hero Video Showcase (16:9 Aspect Ratio) */}
-          <div className="lg:col-span-5 flex flex-col gap-4 sm:gap-6 items-end w-full z-10">
+          <div className="lg:col-span-5 flex flex-col items-end w-full z-10">
             <div 
-              className="bg-[#474747] border border-white aspect-video w-full flex items-center justify-center relative overflow-hidden group shadow-2xl transition-all"
+              className="bg-[#474747] border border-white aspect-video w-full max-w-[560px] flex items-center justify-center relative overflow-hidden group shadow-2xl transition-all"
             >
               {isPlaying ? (
                 <iframe
@@ -139,33 +139,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
                   </div>
 
                   {/* Play Badge */}
-                  <div className="relative z-10 w-[60px] sm:w-[68px] h-[60px] sm:h-[68px] rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
-                    <img src={imgPlay} alt="Play" className="w-6 sm:w-7 h-6 sm:h-7 ml-1 object-contain group-hover:brightness-0" />
+                  <div className="relative z-10 w-[54px] sm:w-[64px] h-[54px] sm:h-[64px] rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
+                    <img src={imgPlay} alt="Play" className="w-5 sm:w-6 h-5 sm:h-6 ml-1 object-contain group-hover:brightness-0" />
                   </div>
                 </div>
               )}
-            </div>
-
-            {/* Video Subtitle Badge */}
-            <div className="bg-[#303030] border border-white px-5 sm:px-6 py-3 w-full sm:w-auto">
-              <p className="text-base sm:text-[22px] font-light leading-[30px] text-white text-center sm:text-right">
-                Lass uns dein Vorhaben umsetzen
-              </p>
             </div>
           </div>
 
         </div>
 
-        {/* Client Logos Marquee */}
-        <div className="pt-8 sm:pt-10 border-t border-white/10 w-full overflow-hidden">
-          <div className="w-full relative overflow-hidden py-2">
-            <div className="flex gap-10 sm:gap-16 items-center animate-marquee">
+        {/* Client Logos Marquee - always visible at viewport bottom */}
+        <div className="pt-3 lg:pt-4 border-t border-white/10 w-full shrink-0 overflow-hidden">
+          <div className="w-full relative overflow-hidden py-1">
+            <div className="flex gap-10 sm:gap-14 items-center animate-marquee">
               {[...clientLogos, ...clientLogos].map((logo, idx) => (
                 <div 
                   key={idx} 
-                  className="shrink-0 h-[38px] flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="shrink-0 h-[32px] sm:h-[36px] flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
-                  <img src={logo.src} alt={logo.alt} className="max-h-[32px] sm:max-h-[34px] w-auto max-w-[160px] object-contain" />
+                  <img src={logo.src} alt={logo.alt} className="max-h-[28px] sm:max-h-[32px] w-auto max-w-[150px] object-contain" />
                 </div>
               ))}
             </div>
