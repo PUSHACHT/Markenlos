@@ -4,6 +4,7 @@ import { Play, TrendingUp, ExternalLink, ChevronLeft, ChevronRight } from 'lucid
 import { ScrollReveal } from './ScrollReveal';
 import { useShortformReels } from '../hooks/useShortformReels';
 import { useLongformProjects } from '../hooks/useLongformProjects';
+import { initialWebProjects } from '../data/webProjects';
 
 interface ProjectsSectionProps {
   onOpenVideo?: (url?: string) => void;
@@ -13,6 +14,7 @@ interface ProjectsSectionProps {
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact }) => {
   const { reels: shortformReels } = useShortformReels();
   const { projects: longformProjects } = useLongformProjects();
+  const webProjects = initialWebProjects;
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [shortformIndex, setShortformIndex] = useState(0);
   const [longformIndex, setLongformIndex] = useState(0);
@@ -34,41 +36,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
     window.addEventListener('resize', updateItemsPerPage);
     return () => window.removeEventListener('resize', updateItemsPerPage);
   }, []);
-
-  const webProjects = [
-    {
-      title: "DIGITALE BRAND EXPERIENCE & CMS",
-      desc: "Kompletter Relaunch der Unternehmens-Website mit integriertem Bewerber-Portal, 3D-Showcase und 100/100 Lighthouse Performance.",
-      kpi: "+180% mehr Anfragen über das Kontaktformular im 1. Monat",
-      company: "Siam Tulip Gastro",
-      url: "https://markenlos.de",
-      badge: "Gastro & CMS",
-    },
-    {
-      title: "HIGH-CONVERTING LANDING PAGE",
-      desc: "Minimalistisches, klares Webdesign mit klarem Fokus auf Leadgenerierung und nahtloser Terminbuchung.",
-      kpi: "Conversion-Rate von 8,4% auf bezahlte Ads",
-      company: "Villa First Real Estate",
-      url: "https://markenlos.de",
-      badge: "Real Estate Landing Page",
-    },
-    {
-      title: "E-COMMERCE & B2B PLATTFORM",
-      desc: "High-Performance Shop-System mit moderner API-Anbindung, schnellen Ladezeiten und intuitiver Nutzerführung.",
-      kpi: "+65% höherer durchschnittlicher Warenkorbwert",
-      company: "Kolibri Bodensee",
-      url: "https://markenlos.de",
-      badge: "Shop & B2B Portal",
-    },
-    {
-      title: "MODERNES KARRIERE- & BEWERBERPORTAL",
-      desc: "Mitarbeitergewinnung in unter 60 Sekunden ohne Anschreiben. 1-Klick-Bewerbung optimiert für Smartphones.",
-      kpi: "Über 350 eingegangene Bewerbungen im ersten Quartal",
-      company: "Handwerksgruppe Süd",
-      url: "https://markenlos.de",
-      badge: "Recruiting Funnel",
-    },
-  ];
 
   // Calculate pagination values
   const totalShortformPages = Math.ceil(shortformReels.length / itemsPerPage);
@@ -482,49 +449,91 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                       </div>
 
                       {/* Browser Window Frame (Right) - Locked 16:10 Screen Aspect Ratio on all devices */}
-                      <div className="lg:col-span-7 bg-[#474747] border border-[#1a1a1a] rounded-[12px] aspect-[16/10] w-full max-w-full flex flex-col overflow-hidden shadow-2xl order-1 lg:order-2">
+                      <div className="lg:col-span-7 bg-[#1c1c1c] border border-[#303030]/30 rounded-[12px] aspect-[16/10] w-full max-w-full flex flex-col overflow-hidden shadow-2xl order-1 lg:order-2">
                         {/* Browser Window Header */}
-                        <div className="bg-white h-[26px] sm:h-[30px] px-3 sm:px-4 flex items-center justify-between shrink-0 border-b border-gray-200">
+                        <div className="bg-[#242424] h-[28px] sm:h-[34px] px-3 sm:px-4 flex items-center justify-between shrink-0 border-b border-white/10">
                           <div className="flex items-center">
-                            <img src={imgRow} alt="Browser Controls" className="h-2 sm:h-2.5 object-contain" />
+                            <img src={imgRow} alt="Browser Controls" className="h-2 sm:h-2.5 object-contain opacity-80" />
                           </div>
-                          <div className="text-[9px] sm:text-[11px] font-mono text-gray-500 bg-gray-100 px-2 sm:px-4 py-0.5 rounded-sm truncate max-w-[180px] sm:max-w-none">
-                            https://kunde.markenlos.de
-                          </div>
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10px] sm:text-[12px] font-mono text-white/75 bg-black/40 hover:bg-black/60 hover:text-[#39adca] px-2.5 sm:px-4 py-0.5 sm:py-1 rounded flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-none transition-colors border border-white/5"
+                            title={`Öffne ${project.url}`}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                            <span>https://{project.displayUrl}</span>
+                            <ExternalLink className="w-2.5 sm:w-3 h-2.5 sm:h-3 opacity-60 ml-0.5" />
+                          </a>
                           <div className="w-4 sm:w-8" />
                         </div>
 
                         {/* Browser Web Content Mockup - Perfectly Proportional */}
-                        <div className="flex-1 bg-[#222222] p-4 sm:p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden group">
-                          <div className="flex flex-col gap-3 sm:gap-4">
-                            <div className="flex items-center justify-between">
-                              <div className="h-4 sm:h-6 w-24 sm:w-32 bg-white/20 rounded" />
-                              <div className="flex gap-2 sm:gap-3">
-                                <div className="h-3 sm:h-4 w-8 sm:w-12 bg-white/10 rounded" />
-                                <div className="h-3 sm:h-4 w-8 sm:w-12 bg-white/10 rounded" />
-                                <div className="h-3 sm:h-4 w-12 sm:w-16 bg-[#39adca] rounded" />
+                        <div 
+                          className="flex-1 p-4 sm:p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden group bg-gradient-to-br from-[#1b1b1b] via-[#222222] to-[#161616]"
+                        >
+                          {/* Ambient background glow */}
+                          <div 
+                            className="absolute -right-16 -top-16 w-48 h-48 rounded-full blur-3xl opacity-20 pointer-events-none"
+                            style={{ backgroundColor: project.accentColor || '#39adca' }}
+                          />
+
+                          <div className="flex flex-col gap-3 sm:gap-4 relative z-10">
+                            {/* Navbar Mockup */}
+                            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                              <div className="flex items-center gap-2">
+                                <div 
+                                  className="w-2.5 h-2.5 rounded-full"
+                                  style={{ backgroundColor: project.accentColor || '#39adca' }}
+                                />
+                                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide truncate max-w-[140px] sm:max-w-none">
+                                  {project.company}
+                                </span>
+                              </div>
+                              <div className="flex gap-2 sm:gap-3 items-center">
+                                <div className="h-2.5 sm:h-3 w-8 sm:w-12 bg-white/15 rounded" />
+                                <div className="h-2.5 sm:h-3 w-8 sm:w-12 bg-white/15 rounded" />
+                                <div 
+                                  className="h-2.5 sm:h-3 w-12 sm:w-16 rounded opacity-80"
+                                  style={{ backgroundColor: project.accentColor || '#39adca' }}
+                                />
                               </div>
                             </div>
 
-                            <div className="pt-3 sm:pt-6 flex flex-col gap-2 sm:gap-3">
-                              <div className="h-5 sm:h-8 w-3/4 bg-white/90 rounded" />
-                              <div className="h-3 sm:h-4 w-full bg-white/20 rounded" />
-                              <div className="h-3 sm:h-4 w-2/3 bg-white/20 rounded" />
+                            {/* Hero Mockup */}
+                            <div className="pt-2 sm:pt-4 flex flex-col gap-2 sm:gap-3">
+                              <span 
+                                className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider"
+                                style={{ color: project.accentColor || '#39adca' }}
+                              >
+                                {project.badge}
+                              </span>
+                              <h4 className="text-base sm:text-xl lg:text-2xl font-bold text-white tracking-tight line-clamp-2">
+                                {project.title}
+                              </h4>
+                              <p className="text-xs sm:text-sm text-white/70 line-clamp-2 max-w-xl">
+                                {project.desc}
+                              </p>
                             </div>
                           </div>
 
-                          <div className="flex gap-2 sm:gap-4 pt-4 sm:pt-8">
-                            <button 
-                              onClick={() => onOpenContact?.('Webprojekt')}
-                              className="h-8 sm:h-10 px-3 sm:px-5 bg-[#39adca] hover:bg-[#2ba2bf] rounded flex items-center justify-center text-[#303030] text-[10px] sm:text-xs font-bold transition-colors cursor-pointer"
+                          {/* Action Buttons */}
+                          <div className="flex flex-wrap gap-2 sm:gap-3 pt-3 sm:pt-6 relative z-10">
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="h-7 sm:h-9 px-3 sm:px-4 bg-[#39adca] hover:bg-[#2ba2bf] rounded-md flex items-center justify-center text-[#1e1e1e] text-[10px] sm:text-xs font-bold transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
                             >
-                              Jetzt entdecken
-                            </button>
+                              <span>Website live ansehen</span>
+                              <ExternalLink className="w-3 h-3 ml-1.5" />
+                            </a>
                             <button 
-                              onClick={() => onOpenContact?.('Portfolio Anfrage')}
-                              className="h-8 sm:h-10 px-3 sm:px-5 border border-white/30 hover:bg-white/10 rounded flex items-center justify-center text-white text-[10px] sm:text-xs transition-colors cursor-pointer"
+                              onClick={() => onOpenContact?.(project.title)}
+                              className="h-7 sm:h-9 px-3 sm:px-4 border border-white/20 hover:border-white/40 hover:bg-white/10 rounded-md flex items-center justify-center text-white text-[10px] sm:text-xs font-medium transition-all duration-200 cursor-pointer"
                             >
-                              Portfolio
+                              Projekt anfragen
                             </button>
                           </div>
 
