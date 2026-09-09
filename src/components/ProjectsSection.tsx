@@ -5,6 +5,7 @@ import { ScrollReveal } from './ScrollReveal';
 import { useShortformReels } from '../hooks/useShortformReels';
 import { useLongformProjects } from '../hooks/useLongformProjects';
 import { initialWebProjects } from '../data/webProjects';
+import { useSwipe } from '../hooks/useSwipe';
 
 interface ProjectsSectionProps {
   onOpenVideo?: (url?: string) => void;
@@ -87,6 +88,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
     setWebIndex((prev) => (prev + 1) % webProjects.length);
   };
 
+  // Mobile Touch Swipe Handlers
+  const shortformSwipe = useSwipe(handleShortformNext, handleShortformPrev);
+  const longformSwipe = useSwipe(handleLongformNext, handleLongformPrev);
+  const webSwipe = useSwipe(handleWebNext, handleWebPrev);
+
   return (
     <section id="projekte" className="bg-white text-[#303030] py-20 lg:py-[128px] px-6 sm:px-10 md:px-16 lg:px-24 w-full overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto flex flex-col gap-12 lg:gap-16">
@@ -111,7 +117,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             </p>
 
           {/* Carousel Wrapper with Desktop Floating Arrows */}
-          <div className="relative">
+          <div className="relative touch-pan-y" {...shortformSwipe}>
             {/* Desktop Left Float Arrow */}
             <button
               onClick={handleShortformPrev}
@@ -246,7 +252,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             Showcases Longform (16:9)
           </p>
 
-          <div className="relative">
+          <div className="relative touch-pan-y" {...longformSwipe}>
             {/* Desktop Left Float Arrow */}
             <button
               onClick={handleLongformPrev}
@@ -390,7 +396,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative touch-pan-y" {...webSwipe}>
             {/* Desktop Left Float Arrow */}
             <button
               onClick={handleWebPrev}
