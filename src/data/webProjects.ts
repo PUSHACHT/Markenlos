@@ -28,7 +28,7 @@ export const initialWebProjects: WebProject[] = [
     displayUrl: "www.pi-jugendhilfe.com",
     badge: "Jugendhilfe & CMS",
     previewImage: piJugendhilfeImg,
-    allowsIframe: false, // Protected with X-Frame-Options DENY
+    allowsIframe: true,
     previewColor: "#2b4c7e",
     accentColor: "#39adca",
   },
@@ -54,7 +54,7 @@ export const initialWebProjects: WebProject[] = [
     displayUrl: "a10-media.com",
     badge: "Media Agentur",
     previewImage: a10MediaImg,
-    allowsIframe: false, // Protected with X-Frame-Options SAMEORIGIN
+    allowsIframe: true,
     previewColor: "#18181b",
     accentColor: "#39adca",
   },
