@@ -77,7 +77,7 @@ export const ValuesAndTeamSection: React.FC<ValuesAndTeamSectionProps> = ({ onOp
             {/* Card 1: A10 (Figma: bg-[#303030] border-[0.795px] border-white h-[159px]) */}
             <ScrollReveal direction="up" distance={30} delay={100}>
               <div className="bg-[#303030] border-[0.795px] border-white h-[159px] flex items-center justify-center shadow-[0px_3.18px_82px_rgba(0,0,0,0.04)]">
-                <div className="text-[56px] font-extrabold leading-[64px] tracking-[-1px]">
+                <div className="text-[52px] sm:text-[56px] font-black italic leading-none tracking-tight">
                   <span className="text-white">A</span>
                   <span className="text-[#39adca]">10</span>
                 </div>
@@ -86,12 +86,12 @@ export const ValuesAndTeamSection: React.FC<ValuesAndTeamSectionProps> = ({ onOp
 
             {/* Card 2: SMITH VISUALS */}
             <ScrollReveal direction="up" distance={30} delay={200}>
-              <div className="bg-[#303030] border-[0.795px] border-white h-[159px] flex items-center justify-center p-6 shadow-[0px_3.18px_82px_rgba(0,0,0,0.04)]">
-                <div className="flex items-center gap-3">
-                  <img src={imgIconSmith} alt="" className="h-8 object-contain" />
-                  <div className="text-[26px] sm:text-[31.8px] font-extrabold leading-[38px]">
-                    <span className="text-[#39adca]">SMITH</span>
-                    <span className="text-white"> VISUALS</span>
+              <div className="bg-[#303030] border-[0.795px] border-white h-[159px] flex items-center justify-center p-4 sm:p-6 shadow-[0px_3.18px_82px_rgba(0,0,0,0.04)]">
+                <div className="flex items-center justify-center gap-3 sm:gap-3.5">
+                  <img src={imgIconSmith} alt="Smith Visuals Icon" className="h-7 sm:h-8 object-contain shrink-0" />
+                  <div className="flex flex-col text-left font-black tracking-tight leading-none">
+                    <span className="text-[#39adca] text-[20px] sm:text-[24px]">SMITH</span>
+                    <span className="text-white text-[20px] sm:text-[24px] mt-0.5">VISUALS</span>
                   </div>
                 </div>
               </div>
