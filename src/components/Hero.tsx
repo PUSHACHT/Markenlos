@@ -168,6 +168,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
                   <div className="relative z-10 w-[50px] sm:w-[64px] h-[50px] sm:h-[64px] rounded-full bg-[#303030]/90 border border-[#39adca] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#39adca] transition-all duration-300 shadow-2xl">
                     <img src={imgPlay} alt="Play" className="w-5 sm:w-6 h-5 sm:h-6 ml-1 object-contain group-hover:brightness-0" />
                   </div>
+
+                  {/* 2-Click Transparency Note */}
+                  <div className="absolute bottom-2 sm:bottom-3 inset-x-2 sm:inset-x-3 z-10 bg-black/75 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded flex items-center justify-between border border-white/10 text-[9px] sm:text-[11px] text-white/80">
+                    <span>Mit Klick auf Play wird das Video von YouTube geladen</span>
+                    <span className="text-[#39adca] font-medium hidden sm:inline">2-Klick Datenschutz</span>
+                  </div>
                 </div>
               )}
             </div>

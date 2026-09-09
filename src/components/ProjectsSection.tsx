@@ -189,11 +189,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                             </div>
                           </div>
 
-                          <div className="z-10 bg-black/70 backdrop-blur-sm p-2 rounded-md border border-white/10">
+                          <div className="z-10 bg-black/80 backdrop-blur-sm p-2 rounded-md border border-white/10">
                             <p className="text-white text-xs font-medium truncate">{reel.company}</p>
-                            <p className="text-[#39adca] text-[10px] flex items-center gap-1">
+                            <p className="text-[#39adca] text-[10px] flex items-center gap-1 mt-0.5">
                               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
-                              <span>Direkt abspielen</span>
+                              <span>Play lädt YouTube Video</span>
                             </p>
                           </div>
                         </div>
@@ -324,13 +324,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                               </div>
                             </div>
 
-                            <div className="z-10 bg-black/70 backdrop-blur-md p-3 rounded-lg flex items-center justify-between border border-white/10">
+                            <div className="z-10 bg-black/80 backdrop-blur-md p-3 rounded-lg flex items-center justify-between border border-white/10">
                               <div>
                                 <p className="text-white font-semibold text-xs sm:text-sm">{project.company}</p>
-                                <p className="text-[#39adca] text-[11px] sm:text-xs">High-End 4K Cinema Production</p>
+                                <p className="text-white/70 text-[10px] sm:text-xs">Mit Klick wird das Video von YouTube (Google) geladen</p>
                               </div>
-                              <span className="text-white text-[10px] sm:text-xs bg-[#39adca]/20 text-[#39adca] border border-[#39adca]/40 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded">
-                                Direkt abspielen
+                              <span className="text-[#303030] font-bold text-[10px] sm:text-xs bg-[#39adca] hover:bg-[#2ba2bf] px-2.5 sm:px-3 py-1 rounded transition-colors shadow">
+                                Video starten
                               </span>
                             </div>
                           </div>
