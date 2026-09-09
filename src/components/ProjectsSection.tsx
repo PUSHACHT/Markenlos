@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import imgRow from '../assets/imgRow.svg';
 import { Play, TrendingUp, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
+import { useShortformReels } from '../hooks/useShortformReels';
 
 interface ProjectsSectionProps {
   onOpenVideo?: (url?: string) => void;
@@ -9,68 +10,12 @@ interface ProjectsSectionProps {
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact }) => {
+  const { reels: shortformReels } = useShortformReels();
   const [shortformIndex, setShortformIndex] = useState(0);
   const [longformIndex, setLongformIndex] = useState(0);
   const [webIndex, setWebIndex] = useState(0);
   const [playingReelIndex, setPlayingReelIndex] = useState<number | null>(null);
   const [isPlayingLongform, setIsPlayingLongform] = useState(false);
-
-  const shortformReels = [
-    {
-      title: "TIKTOK RECRUITING KAMPAGNE",
-      desc: "Authentische Kurzvideos für Azubi- und Fachkräfte-Gewinnung.",
-      kpi: "+240% mehr qualifizierte Bewerbungen in 6 Wochen",
-      company: "Handwerksgruppe Süd",
-      badge: "Recruiting",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "INSTAGRAM BRAND AWARENESS",
-      desc: "Dynamische Produktinszenierung und Storytelling für Food-Brand.",
-      kpi: "1.2M organische Impressionen & 18.000 Likes",
-      company: "Okinii Restaurant",
-      badge: "Social Media",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "VIRAL REEL SERIE",
-      desc: "Humorvolle Einblicke hinter die Kulissen im Agenturalltag.",
-      kpi: "Ø 85.000 Aufrufe pro Video bei 92% Completion Rate",
-      company: "Maya Coaching",
-      badge: "Content",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "EMPLOYER BRANDING BTS",
-      desc: "Echte Stimmen von Mitarbeitern und ungefilterte Teameinblicke.",
-      kpi: "+180% Reichweite bei der Gen-Z Zielgruppe",
-      company: "Becker Gruppe GmbH",
-      badge: "Recruiting",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "EVENT REEL & HIGHLIGHTS",
-      desc: "Cinematische Zusammenfassung des Sommer-Events mit Drohnenshots.",
-      kpi: "32.000 Shares auf Instagram & LinkedIn",
-      company: "Fronhofer Galeria",
-      badge: "Event",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "LUXUS REAL ESTATE REEL",
-      desc: "High-End Architektur-Walkthrough mit packender Musik.",
-      kpi: "4 Notartermine direkt über Social-Media Leads",
-      company: "Villa First Real Estate",
-      badge: "Immobilien",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80",
-    },
-  ];
 
   const longformProjects = [
     {
@@ -306,7 +251,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center items-center gap-2 pt-4">
+          <div className="flex justify-center items-center gap-1.5 sm:gap-2 pt-4 max-w-full overflow-x-auto py-2 px-4">
             {shortformReels.map((_, dot) => (
               <button
                 key={dot}
@@ -314,8 +259,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                   setShortformIndex(dot);
                   setPlayingReelIndex(null);
                 }}
-                className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
-                  dot === shortformIndex ? 'bg-[#303030] scale-110' : 'bg-[#959595]'
+                className={`transition-all cursor-pointer rounded-full ${
+                  dot === shortformIndex 
+                    ? 'w-6 sm:w-8 h-2 sm:h-2.5 bg-[#303030]' 
+                    : 'w-2 sm:w-2.5 h-2 sm:h-2.5 bg-[#959595]/50 hover:bg-[#959595]'
                 }`}
                 aria-label={`Slide ${dot + 1}`}
               />
