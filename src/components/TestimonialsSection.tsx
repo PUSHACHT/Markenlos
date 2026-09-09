@@ -22,10 +22,10 @@ export const TestimonialsSection: React.FC = () => {
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="flex flex-col gap-2">
-            <p className="text-[36px] font-extralight text-white leading-none">
+            <p className="text-[24px] sm:text-[30px] md:text-[36px] font-extralight text-white leading-tight">
               Zufriedene
             </p>
-            <h2 className="text-[40px] md:text-[48px] font-bold text-white tracking-tight leading-none">
+            <h2 className="text-[28px] xs:text-[34px] sm:text-[40px] md:text-[48px] font-bold text-white tracking-tight leading-tight break-words hyphens-auto">
               Kunden
             </h2>
             <span className="text-[14px] font-light text-[#39adca] tracking-wider uppercase mt-2">

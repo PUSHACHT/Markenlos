@@ -15,17 +15,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
         <ScrollReveal direction="up" distance={25}>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <p className="text-[36px] font-extralight text-[#303030] leading-none">
+              <p className="text-[24px] sm:text-[30px] md:text-[36px] font-extralight text-[#303030] leading-tight">
                 Unsere
               </p>
-              <h2 className="text-[40px] md:text-[48px] font-bold text-[#303030] tracking-tight leading-none">
+              <h2 className="text-[28px] xs:text-[34px] sm:text-[40px] md:text-[48px] font-bold text-[#303030] tracking-tight leading-tight break-words hyphens-auto">
                 Pakete
               </h2>
             </div>
 
             <div className="flex flex-col gap-2 max-w-3xl">
-              <h3 className="text-2xl md:text-3xl font-semibold text-[#303030]">
-                Kein Versteckspiel beim Budget.
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#303030] break-words hyphens-auto">
+                Kein Versteck&shy;spiel beim Budget.
               </h3>
               <p className="text-base md:text-[18px] font-light text-[#303030]/85 leading-relaxed">
                 Wir finden es selbst anstrengend, wenn man erst drei Telefonate führen muss, um überhaupt eine Zahl zu hören. Deshalb stehen hier unsere Startpreise. Wenn die Richtung für euch passt, sprechen wir über die Details.

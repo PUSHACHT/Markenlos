@@ -19,7 +19,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact })
               KONTAKT
             </p>
 
-            <h2 className="text-3xl sm:text-5xl md:text-[64px] lg:text-[72px] font-extralight leading-[1.1] md:leading-[76px] text-white">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-[64px] lg:text-[72px] font-extralight leading-[1.1] md:leading-[76px] text-white break-words hyphens-auto">
               <span>Bereit für euren </span>
               <span className="font-bold">
                 <span className="text-[#39adca]">digitalen</span>

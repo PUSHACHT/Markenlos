@@ -70,26 +70,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
     { src: imgVeltenToennies1, alt: 'Velten & Tönnies' },
   ];
 
-  // Subtle smooth parallax offset (hardware accelerated)
-  const parallaxOffset = Math.min(scrollY * 0.14, 120);
+  // Subtle smooth parallax offset for hero content (hardware accelerated)
+  const parallaxOffset = Math.min(scrollY * 0.1, 80);
 
   return (
-    <header className="bg-[#303030] min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-24 pb-4 lg:pb-6 px-4 sm:px-8 md:px-16 lg:px-24 w-full overflow-hidden relative">
-      <div 
-        className="w-full max-w-[1440px] mx-auto flex-1 flex flex-col justify-between gap-6 lg:gap-6 relative z-10 transition-transform duration-75 ease-out"
-        style={{
-          transform: `translate3d(0, ${parallaxOffset}px, 0)`,
-          willChange: 'transform',
-        }}
-      >
+    <header className="bg-[#303030] min-h-screen flex flex-col justify-between pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-14 lg:pb-16 px-4 sm:px-8 md:px-16 lg:px-24 w-full overflow-hidden relative">
+      <div className="w-full max-w-[1440px] mx-auto flex-1 flex flex-col justify-between gap-8 lg:gap-12 relative z-10">
         
-        {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center my-auto py-4 sm:py-0">
+        {/* Main Hero Grid with subtle parallax */}
+        <div 
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center my-auto py-4 sm:py-2 transition-transform duration-75 ease-out"
+          style={{
+            transform: `translate3d(0, ${parallaxOffset}px, 0)`,
+            willChange: 'transform',
+          }}
+        >
           
           {/* Left Column: Headlines & CTAs */}
           <div className="lg:col-span-7 flex flex-col gap-5 lg:gap-6 z-10">
             <div className="flex flex-col gap-3 sm:gap-4">
-              <h1 className="text-[30px] xs:text-[35px] sm:text-[42px] md:text-[52px] lg:text-[63px] xl:text-[77px] 2xl:text-[84px] font-bold uppercase leading-[1.02] tracking-[-0.5px] text-white select-none break-words">
+              <h1 className="text-[28px] xs:text-[34px] sm:text-[42px] md:text-[52px] lg:text-[63px] xl:text-[77px] 2xl:text-[84px] font-bold uppercase leading-[1.04] tracking-[-0.5px] text-white select-none break-words hyphens-auto">
                 <span className="block">MARKENLOS</span>
                 <span className="block">MACHT</span>
                 <span className="block">
@@ -174,8 +174,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
 
         </div>
 
-        {/* Client Logos Marquee - visible at bottom */}
-        <div className="pt-3 lg:pt-4 border-t border-white/10 w-full shrink-0 overflow-hidden">
+        {/* Client Logos Marquee - with comfortable padding & separation */}
+        <div className="pt-6 sm:pt-8 pb-2 border-t border-white/10 w-full shrink-0 overflow-hidden">
           <div className="w-full relative overflow-hidden py-1">
             <div className="flex gap-8 sm:gap-14 items-center animate-marquee">
               {[...clientLogos, ...clientLogos].map((logo, idx) => (

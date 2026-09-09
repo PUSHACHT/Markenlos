@@ -21,11 +21,11 @@ export const ValuesAndTeamSection: React.FC<ValuesAndTeamSectionProps> = ({ onOp
           
           <ScrollReveal direction="up" distance={25}>
             <div className="flex flex-col">
-              <p className="text-[32px] sm:text-[36px] font-extralight leading-[48px] text-white">
+              <p className="text-[24px] sm:text-[30px] lg:text-[36px] font-extralight leading-tight text-white">
                 Wir und unser
               </p>
-              <h2 className="text-[36px] sm:text-[40px] font-bold leading-[48px] text-white tracking-[-0.5px]">
-                Werteversprechen
+              <h2 className="text-[28px] xs:text-[34px] sm:text-[40px] font-bold leading-tight text-white tracking-[-0.5px] break-words hyphens-auto">
+                Werte&shy;versprechen
               </h2>
             </div>
           </ScrollReveal>

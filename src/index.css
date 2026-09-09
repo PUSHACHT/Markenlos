@@ -22,6 +22,11 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 

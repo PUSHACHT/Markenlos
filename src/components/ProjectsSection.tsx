@@ -94,11 +94,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
         {/* Section Header */}
         <ScrollReveal direction="up" distance={25}>
           <div className="flex flex-col">
-            <p className="text-[32px] sm:text-[36px] font-extralight leading-[48px] text-[#303030]">
+            <p className="text-[24px] sm:text-[30px] lg:text-[36px] font-extralight leading-tight text-[#303030]">
               Unsere
             </p>
-            <h2 className="text-[36px] sm:text-[40px] font-bold leading-[48px] text-[#303030] tracking-[-0.5px]">
-              Projektlandschaft
+            <h2 className="text-[28px] xs:text-[34px] sm:text-[40px] font-bold leading-tight text-[#303030] tracking-[-0.5px] break-words hyphens-auto">
+              Projekt&shy;landschaft
             </h2>
           </div>
         </ScrollReveal>
@@ -197,7 +197,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                     {/* 9:16 Description Card */}
                     <div className="bg-[#303030] flex-1 w-full sm:w-[255px] min-h-[260px] sm:min-h-[383px] rounded-[12px] px-5 py-6 text-white flex flex-col justify-between shadow-lg">
                       <div className="flex flex-col gap-3">
-                        <h3 className="text-[20px] sm:text-[24px] font-light leading-[28px] sm:leading-[30px] text-white">
+                        <h3 className="text-[18px] sm:text-[24px] font-light leading-snug sm:leading-[30px] text-white break-words hyphens-auto">
                           {reel.title}
                         </h3>
                         <p className="text-[14px] sm:text-[15px] font-light leading-[20px] sm:leading-[22px] text-white/80">
@@ -337,7 +337,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                           <div className="inline-block bg-[#39adca]/20 text-[#39adca] text-xs font-semibold px-2.5 py-1 rounded-md w-max">
                             4K Longform Content
                           </div>
-                          <h3 className="text-[22px] sm:text-[32px] font-light leading-[32px] sm:leading-[36px] text-white">
+                          <h3 className="text-[20px] sm:text-[28px] lg:text-[32px] font-light leading-snug sm:leading-[36px] text-white break-words hyphens-auto">
                             {project.title}
                           </h3>
                           <p className="text-[15px] sm:text-[18px] font-light leading-[24px] sm:leading-[28px] text-white/85">
@@ -426,7 +426,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                           <div className="inline-block bg-[#39adca]/20 text-[#39adca] text-xs font-semibold px-2.5 py-1 rounded-md w-max">
                             {project.badge}
                           </div>
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug">
+                          <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug break-words hyphens-auto">
                             {project.title}
                           </h3>
                           <p className="text-sm sm:text-base font-light text-white/85 leading-relaxed">
