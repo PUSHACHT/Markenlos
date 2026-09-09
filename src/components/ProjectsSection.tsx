@@ -3,6 +3,7 @@ import imgRow from '../assets/imgRow.svg';
 import { Play, TrendingUp, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { useShortformReels } from '../hooks/useShortformReels';
+import { useLongformProjects } from '../hooks/useLongformProjects';
 
 interface ProjectsSectionProps {
   onOpenVideo?: (url?: string) => void;
@@ -11,6 +12,7 @@ interface ProjectsSectionProps {
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact }) => {
   const { reels: shortformReels } = useShortformReels();
+  const { projects: longformProjects } = useLongformProjects();
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [shortformIndex, setShortformIndex] = useState(0);
   const [longformIndex, setLongformIndex] = useState(0);
@@ -32,45 +34,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
     window.addEventListener('resize', updateItemsPerPage);
     return () => window.removeEventListener('resize', updateItemsPerPage);
   }, []);
-
-  const longformProjects = [
-    {
-      title: "IMAGEFILM & KORPORATE IDENTITY",
-      desc: "Cinematische Darstellung des Familienunternehmens mit Fokus auf Innovation, Nachhaltigkeit und regionale Verbundenheit.",
-      kpi: "Erreichte 45.000 Entscheidungsträger & 40% mehr Initiativbewerbungen.",
-      company: "Becker Gruppe GmbH",
-      duration: "03:45 Min",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "DOKUMENTATION & MEILENSTEIN-EVENT",
-      desc: "Begleitender Imagefilm zum 25-jährigen Firmenjubiläum inklusive Drohnenaufnahmen und Mitarbeiter-Interviews.",
-      kpi: "Ausgezeichnet für beste B2B-Unternehmenskommunikation 2024.",
-      company: "Velten & Tönnies",
-      duration: "05:12 Min",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "CINEMA WERBESPOT & TV-KAMPAGNE",
-      desc: "Gefühlvolles Storytelling und moderne Kameraführung für maximale emotionale Bindung und Markenbekanntheit.",
-      kpi: "+310% gesteigerte Markenbekanntheit im regionalen Raum.",
-      company: "IDR Coaching",
-      duration: "02:30 Min",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=1200&auto=format&fit=crop&q=80",
-    },
-    {
-      title: "JUBILÄUMSFILM & EMOTIONAL BRANDING",
-      desc: "Ein Vierteljahrhundert Unternehmertum in einem packenden 4K-Meisterwerk, erzählt von den Gründern selbst.",
-      kpi: "Über 120.000 organische Videoaufrufe auf YouTube.",
-      company: "Hegau Jugendwerk",
-      duration: "04:18 Min",
-      videoId: "dQw4w9WgXcQ",
-      thumb: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&auto=format&fit=crop&q=80",
-    },
-  ];
 
   const webProjects = [
     {
