@@ -1,3 +1,9 @@
+import piJugendhilfeImg from '../assets/web-previews/pi-jugendhilfe.png';
+import mkExecutiveImg from '../assets/web-previews/mk-executive.png';
+import a10MediaImg from '../assets/web-previews/a10-media.png';
+import uniteSocialImg from '../assets/web-previews/unitesocial.png';
+import smithVisualsImg from '../assets/web-previews/smithvisuals.png';
+
 export interface WebProject {
   title: string;
   desc: string;
@@ -6,6 +12,8 @@ export interface WebProject {
   url: string;
   displayUrl: string;
   badge: string;
+  previewImage: string;
+  allowsIframe: boolean;
   previewColor?: string;
   accentColor?: string;
 }
@@ -19,6 +27,8 @@ export const initialWebProjects: WebProject[] = [
     url: "https://www.pi-jugendhilfe.com/",
     displayUrl: "www.pi-jugendhilfe.com",
     badge: "Jugendhilfe & CMS",
+    previewImage: piJugendhilfeImg,
+    allowsIframe: false, // Protected with X-Frame-Options DENY
     previewColor: "#2b4c7e",
     accentColor: "#39adca",
   },
@@ -30,6 +40,8 @@ export const initialWebProjects: WebProject[] = [
     url: "https://mk-executive.com/",
     displayUrl: "mk-executive.com",
     badge: "Executive Leadership",
+    previewImage: mkExecutiveImg,
+    allowsIframe: true,
     previewColor: "#1e293b",
     accentColor: "#d97706",
   },
@@ -41,6 +53,8 @@ export const initialWebProjects: WebProject[] = [
     url: "https://a10-media.com/",
     displayUrl: "a10-media.com",
     badge: "Media Agentur",
+    previewImage: a10MediaImg,
+    allowsIframe: false, // Protected with X-Frame-Options SAMEORIGIN
     previewColor: "#18181b",
     accentColor: "#39adca",
   },
@@ -52,6 +66,8 @@ export const initialWebProjects: WebProject[] = [
     url: "https://unitesocial.eu/",
     displayUrl: "unitesocial.eu",
     badge: "Tech Platform",
+    previewImage: uniteSocialImg,
+    allowsIframe: true,
     previewColor: "#0f172a",
     accentColor: "#6366f1",
   },
@@ -63,6 +79,8 @@ export const initialWebProjects: WebProject[] = [
     url: "https://smithvisuals.de/",
     displayUrl: "smithvisuals.de",
     badge: "Cinematic Portfolio",
+    previewImage: smithVisualsImg,
+    allowsIframe: true,
     previewColor: "#171717",
     accentColor: "#39adca",
   },

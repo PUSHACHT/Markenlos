@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import imgRow from '../assets/imgRow.svg';
-import { Play, TrendingUp, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, TrendingUp, ExternalLink, ChevronLeft, ChevronRight, Monitor } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { useShortformReels } from '../hooks/useShortformReels';
 import { useLongformProjects } from '../hooks/useLongformProjects';
@@ -21,6 +21,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
   const [webIndex, setWebIndex] = useState(0);
   const [playingReelIndex, setPlayingReelIndex] = useState<number | null>(null);
   const [isPlayingLongform, setIsPlayingLongform] = useState(false);
+  const [activeLiveIframe, setActiveLiveIframe] = useState<number | null>(null);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -78,9 +79,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
   };
 
   const handleWebPrev = () => {
+    setActiveLiveIframe(null);
     setWebIndex((prev) => (prev - 1 + webProjects.length) % webProjects.length);
   };
   const handleWebNext = () => {
+    setActiveLiveIframe(null);
     setWebIndex((prev) => (prev + 1) % webProjects.length);
   };
 
@@ -443,94 +446,108 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                       </div>
 
                       {/* Browser Window Frame (Right) - Locked 16:10 Screen Aspect Ratio on all devices */}
-                      <div className="lg:col-span-7 bg-[#1c1c1c] border border-[#303030]/30 rounded-[12px] aspect-[16/10] w-full max-w-full flex flex-col overflow-hidden shadow-2xl order-1 lg:order-2">
+                      <div className="lg:col-span-7 bg-[#1c1c1c] border border-[#303030]/40 rounded-[12px] aspect-[16/10] w-full max-w-full flex flex-col overflow-hidden shadow-2xl order-1 lg:order-2 group relative">
                         {/* Browser Window Header */}
-                        <div className="bg-[#242424] h-[28px] sm:h-[34px] px-3 sm:px-4 flex items-center justify-between shrink-0 border-b border-white/10">
-                          <div className="flex items-center">
+                        <div className="bg-[#222222] h-[30px] sm:h-[36px] px-3 sm:px-4 flex items-center justify-between shrink-0 border-b border-white/10 z-20">
+                          <div className="flex items-center gap-2">
                             <img src={imgRow} alt="Browser Controls" className="h-2 sm:h-2.5 object-contain opacity-80" />
                           </div>
+                          
+                          {/* Live URL Bar */}
                           <a
                             href={project.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[10px] sm:text-[12px] font-mono text-white/75 bg-black/40 hover:bg-black/60 hover:text-[#39adca] px-2.5 sm:px-4 py-0.5 sm:py-1 rounded flex items-center gap-1.5 truncate max-w-[200px] sm:max-w-none transition-colors border border-white/5"
+                            className="text-[10px] sm:text-[12px] font-mono text-white/80 bg-black/50 hover:bg-black/80 hover:text-[#39adca] px-3 sm:px-4 py-0.5 sm:py-1 rounded flex items-center gap-1.5 truncate max-w-[180px] sm:max-w-none transition-colors border border-white/10"
                             title={`Öffne ${project.url}`}
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
                             <span>https://{project.displayUrl}</span>
                             <ExternalLink className="w-2.5 sm:w-3 h-2.5 sm:h-3 opacity-60 ml-0.5" />
                           </a>
-                          <div className="w-4 sm:w-8" />
+
+                          <div className="flex items-center gap-1 sm:gap-2">
+                            {project.allowsIframe && (
+                              <button
+                                onClick={() => setActiveLiveIframe(activeLiveIframe === idx ? null : idx)}
+                                className={`text-[9px] sm:text-[11px] px-2 py-0.5 rounded border transition-colors cursor-pointer flex items-center gap-1 ${
+                                  activeLiveIframe === idx
+                                    ? 'bg-[#39adca] text-[#303030] font-bold border-[#39adca]'
+                                    : 'bg-white/10 text-white/80 hover:bg-white/20 border-white/10'
+                                }`}
+                                title={activeLiveIframe === idx ? "Zurück zur statischen Vorschau" : "Live-Interaktivität im Frame aktivieren"}
+                              >
+                                <Monitor className="w-2.5 sm:w-3 h-2.5 sm:h-3" />
+                                <span className="hidden sm:inline">{activeLiveIframe === idx ? "Vorschau" : "Live View"}</span>
+                              </button>
+                            )}
+                          </div>
                         </div>
 
-                        {/* Browser Web Content Mockup - Perfectly Proportional */}
-                        <div 
-                          className="flex-1 p-4 sm:p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden group bg-gradient-to-br from-[#1b1b1b] via-[#222222] to-[#161616]"
-                        >
-                          {/* Ambient background glow */}
-                          <div 
-                            className="absolute -right-16 -top-16 w-48 h-48 rounded-full blur-3xl opacity-20 pointer-events-none"
-                            style={{ backgroundColor: project.accentColor || '#39adca' }}
-                          />
+                        {/* Browser Live Viewport */}
+                        <div className="flex-1 w-full h-full relative overflow-hidden bg-[#111111] flex flex-col justify-end">
+                          {activeLiveIframe === idx && project.allowsIframe ? (
+                            /* Real Interactive Iframe */
+                            <div className="w-full h-full bg-white relative">
+                              <iframe
+                                src={project.url}
+                                title={project.title}
+                                className="w-full h-full border-0"
+                                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                                loading="lazy"
+                              />
+                            </div>
+                          ) : (
+                            /* High-Fidelity Website Screenshot Preview */
+                            <div className="relative w-full h-full overflow-hidden flex flex-col justify-end group/view">
+                              <img
+                                src={project.previewImage}
+                                alt={project.title}
+                                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                              />
 
-                          <div className="flex flex-col gap-3 sm:gap-4 relative z-10">
-                            {/* Navbar Mockup */}
-                            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                              <div className="flex items-center gap-2">
-                                <div 
-                                  className="w-2.5 h-2.5 rounded-full"
-                                  style={{ backgroundColor: project.accentColor || '#39adca' }}
-                                />
-                                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide truncate max-w-[140px] sm:max-w-none">
-                                  {project.company}
-                                </span>
-                              </div>
-                              <div className="flex gap-2 sm:gap-3 items-center">
-                                <div className="h-2.5 sm:h-3 w-8 sm:w-12 bg-white/15 rounded" />
-                                <div className="h-2.5 sm:h-3 w-8 sm:w-12 bg-white/15 rounded" />
-                                <div 
-                                  className="h-2.5 sm:h-3 w-12 sm:w-16 rounded opacity-80"
-                                  style={{ backgroundColor: project.accentColor || '#39adca' }}
-                                />
+                              {/* Subtle ambient overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+
+                              {/* Bottom Floating Action Bar */}
+                              <div className="relative z-10 p-3 sm:p-5 flex flex-wrap items-center justify-between gap-2 backdrop-blur-[2px]">
+                                <div className="hidden sm:block">
+                                  <p className="text-white text-xs font-semibold drop-shadow">{project.company}</p>
+                                  <p className="text-[#39adca] text-[10px] font-medium drop-shadow">Echtzeit Web-Showcase</p>
+                                </div>
+
+                                <div className="flex items-center gap-2">
+                                  <a
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="h-7 sm:h-9 px-3 sm:px-4 bg-[#39adca] hover:bg-[#2ba2bf] rounded-md flex items-center justify-center text-[#1e1e1e] text-[10px] sm:text-xs font-bold transition-all duration-200 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+                                  >
+                                    <span>Website live ansehen</span>
+                                    <ExternalLink className="w-3 h-3 ml-1.5" />
+                                  </a>
+
+                                  {project.allowsIframe && (
+                                    <button
+                                      onClick={() => setActiveLiveIframe(idx)}
+                                      className="h-7 sm:h-9 px-2.5 sm:px-3 bg-black/60 hover:bg-black/90 border border-white/20 text-white rounded-md flex items-center justify-center text-[10px] sm:text-xs font-medium transition-colors cursor-pointer backdrop-blur-md"
+                                      title="Direkt hier im Fenster interagieren"
+                                    >
+                                      <Monitor className="w-3 h-3 sm:mr-1 text-[#39adca]" />
+                                      <span className="hidden sm:inline">Interaktiv</span>
+                                    </button>
+                                  )}
+
+                                  <button
+                                    onClick={() => onOpenContact?.(project.title)}
+                                    className="h-7 sm:h-9 px-2.5 sm:px-3 border border-white/20 hover:border-white/40 hover:bg-white/20 bg-black/40 text-white rounded-md flex items-center justify-center text-[10px] sm:text-xs font-medium transition-all duration-200 cursor-pointer backdrop-blur-md"
+                                  >
+                                    Anfragen
+                                  </button>
+                                </div>
                               </div>
                             </div>
-
-                            {/* Hero Mockup */}
-                            <div className="pt-2 sm:pt-4 flex flex-col gap-2 sm:gap-3">
-                              <span 
-                                className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider"
-                                style={{ color: project.accentColor || '#39adca' }}
-                              >
-                                {project.badge}
-                              </span>
-                              <h4 className="text-base sm:text-xl lg:text-2xl font-bold text-white tracking-tight line-clamp-2">
-                                {project.title}
-                              </h4>
-                              <p className="text-xs sm:text-sm text-white/70 line-clamp-2 max-w-xl">
-                                {project.desc}
-                              </p>
-                            </div>
-                          </div>
-
-                          {/* Action Buttons */}
-                          <div className="flex flex-wrap gap-2 sm:gap-3 pt-3 sm:pt-6 relative z-10">
-                            <a
-                              href={project.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="h-7 sm:h-9 px-3 sm:px-4 bg-[#39adca] hover:bg-[#2ba2bf] rounded-md flex items-center justify-center text-[#1e1e1e] text-[10px] sm:text-xs font-bold transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
-                            >
-                              <span>Website live ansehen</span>
-                              <ExternalLink className="w-3 h-3 ml-1.5" />
-                            </a>
-                            <button 
-                              onClick={() => onOpenContact?.(project.title)}
-                              className="h-7 sm:h-9 px-3 sm:px-4 border border-white/20 hover:border-white/40 hover:bg-white/10 rounded-md flex items-center justify-center text-white text-[10px] sm:text-xs font-medium transition-all duration-200 cursor-pointer"
-                            >
-                              Projekt anfragen
-                            </button>
-                          </div>
-
+                          )}
                         </div>
                       </div>
                     </div>
