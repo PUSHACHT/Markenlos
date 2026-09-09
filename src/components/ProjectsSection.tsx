@@ -167,10 +167,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
                           {/* Dark overlay */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
 
-                          <div className="flex items-center justify-between z-10">
-                            <div className="w-7 h-7 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white text-[10px] font-bold">
-                              {reel.company.substring(0, 2).toUpperCase()}
-                            </div>
+                          <div className="flex items-center justify-end z-10">
                             <span className="bg-[#39adca] text-[#303030] text-[9px] sm:text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">
                               {reel.badge}
                             </span>
@@ -305,10 +302,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenContact 
 
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
 
-                            <div className="flex items-center justify-between z-10">
-                              <div className="w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white text-xs font-bold">
-                                {project.company.substring(0, 2)}
-                              </div>
+                            <div className="flex items-center justify-end z-10">
                               <span className="bg-black/70 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-white/10">
                                 {project.duration}
                               </span>
