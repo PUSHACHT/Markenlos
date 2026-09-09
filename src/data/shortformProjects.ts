@@ -1,3 +1,21 @@
+import t_E9DBcbFIn9s from "../assets/thumbnails/short-E9DBcbFIn9s.jpg";
+import t_AN2gwlrf7UU from "../assets/thumbnails/short-AN2gwlrf7UU.jpg";
+import t_KDPfzfbX2KY from "../assets/thumbnails/short-KDPfzfbX2KY.jpg";
+import t_ajyTqV4f62I from "../assets/thumbnails/short-ajyTqV4f62I.jpg";
+import t_0Cp21310zNI from "../assets/thumbnails/short-0Cp21310zNI.jpg";
+import t_h367fM_YFbQ from "../assets/thumbnails/short-h367fM_YFbQ.jpg";
+import t_3sVGHKCd2pM from "../assets/thumbnails/short-3sVGHKCd2pM.jpg";
+import t_IiEUmU2I0ZE from "../assets/thumbnails/short-IiEUmU2I0ZE.jpg";
+import t_Y3nrvfMm5PM from "../assets/thumbnails/short-Y3nrvfMm5PM.jpg";
+import t_UEQg_nbto7o from "../assets/thumbnails/short-UEQg-nbto7o.jpg";
+import t_PaBuvUkvseE from "../assets/thumbnails/short-PaBuvUkvseE.jpg";
+import t_gOVPWVikbyM from "../assets/thumbnails/short-gOVPWVikbyM.jpg";
+import t_1iFvFOaWGzE from "../assets/thumbnails/short-1iFvFOaWGzE.jpg";
+import t_OtpiJWjML_Q from "../assets/thumbnails/short-OtpiJWjML_Q.jpg";
+import t_JkCeoBxMGVU from "../assets/thumbnails/short-JkCeoBxMGVU.jpg";
+import t_YHweqSfZvJc from "../assets/thumbnails/short-YHweqSfZvJc.jpg";
+import t_2zUlf0LpfU4 from "../assets/thumbnails/short-2zUlf0LpfU4.jpg";
+
 export interface ShortformReel {
   title: string;
   desc: string;
@@ -16,7 +34,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Sport & Fitness",
     badge: "Fitness",
     videoId: "E9DBcbFIn9s",
-    thumb: "https://i.ytimg.com/vi/E9DBcbFIn9s/hqdefault.jpg",
+    thumb: t_E9DBcbFIn9s,
   },
   {
     title: "SPORTTREFF BEUEL KAMPAGNE",
@@ -25,7 +43,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "SportTreff 2.0",
     badge: "Gym",
     videoId: "AN2gwlrf7UU",
-    thumb: "https://i.ytimg.com/vi/AN2gwlrf7UU/hqdefault.jpg",
+    thumb: t_AN2gwlrf7UU,
   },
   {
     title: "SPORTTREFF SOMMERFEST EVENT",
@@ -34,7 +52,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "SportTreff 2.0",
     badge: "Event",
     videoId: "KDPfzfbX2KY",
-    thumb: "https://i.ytimg.com/vi/KDPfzfbX2KY/hqdefault.jpg",
+    thumb: t_KDPfzfbX2KY,
   },
   {
     title: "ATHLETIK & FITNESSSTUDIO",
@@ -43,7 +61,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Athletik Club",
     badge: "Social Media",
     videoId: "ajyTqV4f62I",
-    thumb: "https://i.ytimg.com/vi/ajyTqV4f62I/hqdefault.jpg",
+    thumb: t_ajyTqV4f62I,
   },
   {
     title: "STUDIO EINBLICKE & TRAINING",
@@ -52,7 +70,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Athletik & Fitness",
     badge: "Content",
     videoId: "0Cp21310zNI",
-    thumb: "https://i.ytimg.com/vi/0Cp21310zNI/hqdefault.jpg",
+    thumb: t_0Cp21310zNI,
   },
   {
     title: "PILATES IM GRÜNEN",
@@ -61,7 +79,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Pilates Studio",
     badge: "Lifestyle",
     videoId: "h367fM_YFbQ",
-    thumb: "https://i.ytimg.com/vi/h367fM_YFbQ/hqdefault.jpg",
+    thumb: t_h367fM_YFbQ,
   },
   {
     title: "KOLIBRI EIS GENUSS",
@@ -70,7 +88,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Kolibri Bodensee",
     badge: "Food & Brand",
     videoId: "3sVGHKCd2pM",
-    thumb: "https://i.ytimg.com/vi/3sVGHKCd2pM/hqdefault.jpg",
+    thumb: t_3sVGHKCd2pM,
   },
   {
     title: "INS GRÜNE AFTER WORK",
@@ -79,7 +97,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Ins Grüne",
     badge: "Gastro",
     videoId: "IiEUmU2I0ZE",
-    thumb: "https://i.ytimg.com/vi/IiEUmU2I0ZE/hqdefault.jpg",
+    thumb: t_IiEUmU2I0ZE,
   },
   {
     title: "CINESTAR KONSTANZ ERLEBNIS",
@@ -88,7 +106,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "CineStar Konstanz",
     badge: "Entertainment",
     videoId: "Y3nrvfMm5PM",
-    thumb: "https://i.ytimg.com/vi/Y3nrvfMm5PM/hqdefault.jpg",
+    thumb: t_Y3nrvfMm5PM,
   },
   {
     title: "HAPPY BIRTHDAY CANO",
@@ -97,7 +115,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "CANO Singen",
     badge: "Retail",
     videoId: "UEQg-nbto7o",
-    thumb: "https://i.ytimg.com/vi/UEQg-nbto7o/hqdefault.jpg",
+    thumb: t_UEQg_nbto7o,
   },
   {
     title: "CANO EINKAUFSERLEBNIS",
@@ -106,7 +124,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "CANO Shopping Center",
     badge: "Shopping",
     videoId: "PaBuvUkvseE",
-    thumb: "https://i.ytimg.com/vi/PaBuvUkvseE/hqdefault.jpg",
+    thumb: t_PaBuvUkvseE,
   },
   {
     title: "TAPAS DE ALEMANNIA",
@@ -115,7 +133,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Tapas Restaurant",
     badge: "Food",
     videoId: "gOVPWVikbyM",
-    thumb: "https://i.ytimg.com/vi/gOVPWVikbyM/hqdefault.jpg",
+    thumb: t_gOVPWVikbyM,
   },
   {
     title: "10 JAHRE BRASSERIE TIM RAUE",
@@ -124,7 +142,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Brasserie Tim Raue",
     badge: "Fine Dining",
     videoId: "1iFvFOaWGzE",
-    thumb: "https://i.ytimg.com/vi/1iFvFOaWGzE/hqdefault.jpg",
+    thumb: t_1iFvFOaWGzE,
   },
   {
     title: "CRAFTSMANSHIP IN SCENE",
@@ -133,7 +151,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Handwerksgruppe",
     badge: "Handwerk",
     videoId: "OtpiJWjML_Q",
-    thumb: "https://i.ytimg.com/vi/OtpiJWjML_Q/hqdefault.jpg",
+    thumb: t_OtpiJWjML_Q,
   },
   {
     title: "HANDWERK IN SCENE",
@@ -142,7 +160,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Meisterbetrieb",
     badge: "Recruiting",
     videoId: "JkCeoBxMGVU",
-    thumb: "https://i.ytimg.com/vi/JkCeoBxMGVU/hqdefault.jpg",
+    thumb: t_JkCeoBxMGVU,
   },
   {
     title: "IDR SPORT & ATHLETIK COACHING",
@@ -151,7 +169,7 @@ export const initialShortformReels: ShortformReel[] = [
     company: "IDR Coaching",
     badge: "Sport Coach",
     videoId: "YHweqSfZvJc",
-    thumb: "https://i.ytimg.com/vi/YHweqSfZvJc/hqdefault.jpg",
+    thumb: t_YHweqSfZvJc,
   },
   {
     title: "HANDWERK MIT NACHWUCHS",
@@ -160,6 +178,6 @@ export const initialShortformReels: ShortformReel[] = [
     company: "Handwerksausbildung",
     badge: "Recruiting",
     videoId: "2zUlf0LpfU4",
-    thumb: "https://i.ytimg.com/vi/2zUlf0LpfU4/hqdefault.jpg",
+    thumb: t_2zUlf0LpfU4,
   },
 ];

@@ -61,35 +61,106 @@ export const Modal: React.FC<ModalProps> = ({
             </div>
           </div>
         ) : type === 'legal' ? (
-          <div className="flex flex-col gap-6 max-h-[75vh] overflow-y-auto pr-2">
-            <h3 className="text-3xl font-bold text-[#39adca]">
-              {initialContext === 'impressum' ? 'Impressum' : 'Datenschutzerklärung'}
-            </h3>
+          <div className="flex flex-col gap-6 max-h-[75vh] overflow-y-auto pr-2 custom-scrollbar">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#39adca]">
+                {initialContext === 'impressum' ? 'Impressum' : 'Datenschutzerklärung'}
+              </h3>
+            </div>
+            
             {initialContext === 'impressum' ? (
-              <div className="flex flex-col gap-4 text-sm font-light text-white/90 leading-relaxed">
-                <p className="font-medium text-white">Angaben gemäß § 5 TMG:</p>
-                <p>
-                  Markenlos GmbH<br />
-                  Hauptstraße 123<br />
-                  51503 Rösrath bei Köln<br />
-                  Deutschland
-                </p>
-                <p>
-                  <strong>Vertreten durch:</strong> Klaas & Team<br />
-                  <strong>Kontakt:</strong> E-Mail: hallo@markenlos.de | Telefon: +49 89 123 456 78
-                </p>
-                <p className="text-xs text-white/60">
-                  Umsatzsteuer-Identifikationsnummer: Gemäß § 19 UStG wird keine Umsatzsteuer erhoben und ausgewiesen (Kleinunternehmerregelung / Status).
-                </p>
+              <div className="flex flex-col gap-5 text-sm font-light text-white/90 leading-relaxed">
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz):</h4>
+                  <p>
+                    Markenlos<br />
+                    Klaas & Team<br />
+                    Hauptstraße 123<br />
+                    51503 Rösrath bei Köln<br />
+                    Deutschland
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">Kontakt:</h4>
+                  <p>
+                    E-Mail: <a href="mailto:hallo@markenlos.de" className="text-[#39adca] underline">hallo@markenlos.de</a><br />
+                    Telefon: <a href="tel:+498912345678" className="text-[#39adca] underline">+49 89 123 456 78</a><br />
+                    Website: <a href="https://markenlos.de" className="text-[#39adca] underline">www.markenlos.de</a>
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">Vertreten durch:</h4>
+                  <p>Klaas & Team (Geschäftsführung)</p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">Umsatzsteuer:</h4>
+                  <p className="text-xs text-white/70">
+                    Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: In Vorbereitung / Kleinunternehmerregelung gemäß § 19 UStG.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">EU-Streitschlichtung:</h4>
+                  <p className="text-xs text-white/70">
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-[#39adca] underline">https://ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet oder bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                  </p>
+                </div>
               </div>
             ) : (
-              <div className="flex flex-col gap-4 text-sm font-light text-white/90 leading-relaxed">
-                <p>
-                  Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).
-                </p>
-                <p>
-                  Wenn Sie per Formular auf der Website oder per E-Mail Kontakt mit uns aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-                </p>
+              <div className="flex flex-col gap-5 text-sm font-light text-white/90 leading-relaxed">
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">1. Datenschutz auf einen Blick</h4>
+                  <p>
+                    Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Wir behandeln deine personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (DSGVO, TDDDG) sowie dieser Datenschutzerklärung.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">2. Verantwortliche Stelle</h4>
+                  <p>
+                    Markenlos<br />
+                    Hauptstraße 123, 51503 Rösrath bei Köln<br />
+                    E-Mail: <a href="mailto:hallo@markenlos.de" className="text-[#39adca] underline">hallo@markenlos.de</a>
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">3. Lokale Schriftarten (100% DSGVO-konform)</h4>
+                  <p>
+                    Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten lokale Webfonts (Outfit, Montserrat, Plus Jakarta Sans). Diese sind lokal auf unserem Webserver installiert. Beim Aufruf unserer Seiten werden keine Verbindungen zu Servern von Google Fonts aufgebaut und keine IP-Adressen an externe Server übermittelt.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">4. Keine Tracking-Cookies</h4>
+                  <p>
+                    Unsere Website verwendet keine zustimmungspflichtigen Tracking- oder Marketing-Cookies (kein Google Analytics, kein Meta Pixel). Daher ist auf unserer Webseite kein störendes Cookie-Banner erforderlich.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">5. Kontaktformular & Kontaktaufnahme</h4>
+                  <p>
+                    Wenn du uns per Kontaktformular oder E-Mail Anfragen zukommen lässt, werden deine Angaben aus dem Anfrageformular inklusive der von dir dort angegebenen Kontaktdaten (Name, E-Mail, Telefonnummer, Projektbeschreibung) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert (Art. 6 Abs. 1 lit. b DSGVO). Diese Daten geben wir niemals ohne deine Einwilligung weiter.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">6. YouTube-Einbettung (Erweiterter Datenschutz & 2-Klick-Lösung)</h4>
+                  <p>
+                    Unsere Website bindet Videos der Plattform YouTube ein (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Wir nutzen die datenschutzfreundliche 2-Klick-Lösung mit <code className="text-[#39adca] bg-black/40 px-1 py-0.5 rounded">youtube-nocookie.com</code>: Beim reinen Laden unserer Website werden noch keine Daten an YouTube übertragen. Erst wenn du aktiv auf das Video-Vorschaubild klickst, wird das Video geladen und deine IP-Adresse an YouTube übermittelt (Rechtsgrundlage Art. 6 Abs. 1 lit. a DSGVO).
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">7. Deine Rechte als betroffene Person</h4>
+                  <p>
+                    Du hast jederzeit das Recht auf unentgeltliche Auskunft über deine gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten kannst du dich jederzeit an uns wenden.
+                  </p>
+                </div>
               </div>
             )}
           </div>
@@ -107,13 +178,13 @@ export const Modal: React.FC<ModalProps> = ({
                 setSubmitted(false);
                 onClose();
               }}
-              className="mt-4 bg-[#39adca] text-[#303030] font-semibold px-8 py-3 transition-colors"
+              className="mt-4 bg-[#39adca] text-[#303030] font-semibold px-8 py-3 transition-colors cursor-pointer"
             >
               Schließen
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="flex flex-col gap-1">
               <span className="text-xs text-[#39adca] font-semibold uppercase tracking-wider">
                 Unverbindlich anfragen
@@ -174,10 +245,15 @@ export const Modal: React.FC<ModalProps> = ({
               />
             </div>
 
-            <div className="flex items-center gap-3 pt-2">
+            {/* GDPR Consent Notice */}
+            <p className="text-[11px] text-white/60 leading-relaxed">
+              Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten zur Bearbeitung der Anfrage gemäß unserer Datenschutzerklärung einverstanden. Deine Daten werden nicht an Dritte weitergegeben.
+            </p>
+
+            <div className="flex items-center gap-3 pt-1">
               <button
                 type="submit"
-                className="flex-1 bg-[#39adca] hover:bg-[#2ba2bf] text-[#303030] font-semibold py-4 px-6 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 bg-[#39adca] hover:bg-[#2ba2bf] text-[#303030] font-semibold py-4 px-6 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl"
               >
                 <Send className="w-4 h-4" />
                 <span>Anfrage jetzt absenden</span>
@@ -185,7 +261,7 @@ export const Modal: React.FC<ModalProps> = ({
 
               <a
                 href="tel:+498912345678"
-                className="border border-[#39adca] text-[#39adca] hover:bg-[#39adca]/10 p-4 flex items-center justify-center"
+                className="border border-[#39adca] text-[#39adca] hover:bg-[#39adca]/10 p-4 flex items-center justify-center transition-colors"
                 title="Direkt anrufen"
               >
                 <Phone className="w-5 h-5" />

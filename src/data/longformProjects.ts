@@ -1,3 +1,6 @@
+import thumbPG1 from '../assets/thumbnails/long-pG1QZeO_5Ok.jpg';
+import thumb1sr from '../assets/thumbnails/long-1srCmXos4lk.jpg';
+
 export interface LongformProject {
   title: string;
   desc: string;
@@ -16,7 +19,7 @@ export const initialLongformProjects: LongformProject[] = [
     company: "Live Music Events",
     duration: "03:24 Min",
     videoId: "pG1QZeO_5Ok",
-    thumb: "https://i.ytimg.com/vi/pG1QZeO_5Ok/hqdefault.jpg",
+    thumb: thumbPG1,
   },
   {
     title: "IMAGEFILM BERUFSKOLLEG BLEIBERGQUELLE",
@@ -25,7 +28,7 @@ export const initialLongformProjects: LongformProject[] = [
     company: "Berufskolleg Bleibergquelle",
     duration: "04:12 Min",
     videoId: "1srCmXos4lk",
-    thumb: "https://i.ytimg.com/vi/1srCmXos4lk/hqdefault.jpg",
+    thumb: thumb1sr,
   },
   {
     title: "SPORT COACHING CINEMA KAMPAGNE",
@@ -33,8 +36,8 @@ export const initialLongformProjects: LongformProject[] = [
     kpi: "+310% gesteigerte Markenbekanntheit & Neukunden-Anfragen",
     company: "IDR Sport Coaching",
     duration: "02:30 Min",
-    videoId: "dQw4w9WgXcQ",
-    thumb: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=1200&auto=format&fit=crop&q=80",
+    videoId: "pG1QZeO_5Ok",
+    thumb: thumbPG1,
   },
   {
     title: "DOKUMENTATION & MEILENSTEIN-EVENT",
@@ -42,7 +45,7 @@ export const initialLongformProjects: LongformProject[] = [
     kpi: "Ausgezeichnet für beste B2B-Unternehmenskommunikation",
     company: "Velten & Tönnies",
     duration: "05:12 Min",
-    videoId: "dQw4w9WgXcQ",
-    thumb: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&auto=format&fit=crop&q=80",
+    videoId: "1srCmXos4lk",
+    thumb: thumb1sr,
   },
 ];

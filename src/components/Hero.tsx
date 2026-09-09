@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import imgPhoneCall from '../assets/imgPhoneCall.svg';
 import imgPlay from '../assets/imgPlay.svg';
+import heroThumbImg from '../assets/thumbnails/hero-thumb.jpg';
 
 // Logos
 import imgIdrCoaching1 from '../assets/imgIdrCoaching1.svg';
@@ -147,9 +148,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
                   onClick={() => setIsPlaying(true)}
                   className="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center"
                 >
-                  {/* YouTube Video Preview Thumbnail */}
+                  {/* Local Video Preview Thumbnail (100% GDPR Compliant, no initial Google connection) */}
                   <img 
-                    src={`https://img.youtube.com/vi/${heroVideoId}/hqdefault.jpg`}
+                    src={heroThumbImg}
                     alt="YouTube Preview" 
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
                   />
