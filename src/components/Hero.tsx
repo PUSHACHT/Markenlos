@@ -32,7 +32,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const heroVideoId = "dQw4w9WgXcQ"; // Can be replaced with any YouTube ID
+  const heroVideoId = "2Sq3jUa556M";
 
   useEffect(() => {
     let ticking = false;
