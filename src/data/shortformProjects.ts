@@ -6,11 +6,9 @@ import t_0Cp21310zNI from "../assets/thumbnails/short-0Cp21310zNI.jpg";
 import t_h367fM_YFbQ from "../assets/thumbnails/short-h367fM_YFbQ.jpg";
 import t_3sVGHKCd2pM from "../assets/thumbnails/short-3sVGHKCd2pM.jpg";
 import t_IiEUmU2I0ZE from "../assets/thumbnails/short-IiEUmU2I0ZE.jpg";
-import t_Y3nrvfMm5PM from "../assets/thumbnails/short-Y3nrvfMm5PM.jpg";
 import t_UEQg_nbto7o from "../assets/thumbnails/short-UEQg-nbto7o.jpg";
 import t_PaBuvUkvseE from "../assets/thumbnails/short-PaBuvUkvseE.jpg";
 import t_gOVPWVikbyM from "../assets/thumbnails/short-gOVPWVikbyM.jpg";
-import t_1iFvFOaWGzE from "../assets/thumbnails/short-1iFvFOaWGzE.jpg";
 import t_OtpiJWjML_Q from "../assets/thumbnails/short-OtpiJWjML_Q.jpg";
 import t_JkCeoBxMGVU from "../assets/thumbnails/short-JkCeoBxMGVU.jpg";
 import t_YHweqSfZvJc from "../assets/thumbnails/short-YHweqSfZvJc.jpg";
@@ -100,15 +98,6 @@ export const initialShortformReels: ShortformReel[] = [
     thumb: t_IiEUmU2I0ZE,
   },
   {
-    title: "CINESTAR KONSTANZ ERLEBNIS",
-    desc: "Cinematischer Cinema-Vibe & Event-Promotion für maximale Kinofreude.",
-    kpi: "+260% Social Media Engagement",
-    company: "CineStar Konstanz",
-    badge: "Entertainment",
-    videoId: "Y3nrvfMm5PM",
-    thumb: t_Y3nrvfMm5PM,
-  },
-  {
     title: "HAPPY BIRTHDAY CANO",
     desc: "Feierliches Jubiläum & Besucher-Highlights im Shopping-Center.",
     kpi: "35.000 lokale Shares & Interaktionen",
@@ -134,15 +123,6 @@ export const initialShortformReels: ShortformReel[] = [
     badge: "Food",
     videoId: "gOVPWVikbyM",
     thumb: t_gOVPWVikbyM,
-  },
-  {
-    title: "10 JAHRE BRASSERIE TIM RAUE",
-    desc: "Exklusives Gourmet-Event mit Spitzenkoch Tim Raue im Fokus.",
-    kpi: "Höchste Reichweite im Jahresvergleich",
-    company: "Brasserie Tim Raue",
-    badge: "Fine Dining",
-    videoId: "1iFvFOaWGzE",
-    thumb: t_1iFvFOaWGzE,
   },
   {
     title: "CRAFTSMANSHIP IN SCENE",
