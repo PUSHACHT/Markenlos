@@ -14,6 +14,15 @@ export interface LongformProject {
 
 export const initialLongformProjects: LongformProject[] = [
   {
+    title: "AUSBILDUNG & ERZIEHERINNEN BERUFSKOLLEG",
+    desc: "Persönliche Einblicke und emotionale Erfahrungsberichte über die Ausbildung an der Bleibergquelle zur gezielten Fachkräfte-Gewinnung.",
+    kpi: "Verdopplung der qualifizierten Bewerbungen für das Ausbildungsjahr",
+    company: "Berufskolleg Bleibergquelle",
+    duration: "03:45 Min",
+    videoId: "HZQn5xHfyOM",
+    thumb: thumbHZQ,
+  },
+  {
     title: "LIVE MUSIC AFTERMOVIE & EVENT EXPERIENCE",
     desc: "Cinematische Festival- und Eventbegleitung mit packendem Sounddesign, dynamischer Kameraführung und echten Emotionen.",
     kpi: "Über 65.000 organische Aufrufe & maximale Begeisterung",
@@ -30,14 +39,5 @@ export const initialLongformProjects: LongformProject[] = [
     duration: "04:12 Min",
     videoId: "1srCmXos4lk",
     thumb: thumb1sr,
-  },
-  {
-    title: "AUSBILDUNG & ERZIEHERINNEN BERUFSKOLLEG",
-    desc: "Persönliche Einblicke und emotionale Erfahrungsberichte über die Ausbildung an der Bleibergquelle zur gezielten Fachkräfte-Gewinnung.",
-    kpi: "Verdopplung der qualifizierten Bewerbungen für das Ausbildungsjahr",
-    company: "Berufskolleg Bleibergquelle",
-    duration: "03:45 Min",
-    videoId: "HZQn5xHfyOM",
-    thumb: thumbHZQ,
   },
 ];
