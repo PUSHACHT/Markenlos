@@ -1,5 +1,6 @@
 import thumbPG1 from '../assets/thumbnails/long-pG1QZeO_5Ok.jpg';
 import thumb1sr from '../assets/thumbnails/long-1srCmXos4lk.jpg';
+import thumbHZQ from '../assets/thumbnails/long-HZQn5xHfyOM.jpg';
 
 export interface LongformProject {
   title: string;
@@ -31,21 +32,12 @@ export const initialLongformProjects: LongformProject[] = [
     thumb: thumb1sr,
   },
   {
-    title: "SPORT COACHING CINEMA KAMPAGNE",
-    desc: "Dynamisches Storytelling und moderne 4K-Kameraführung für High-Performance Sport- und Athletik-Coaching.",
-    kpi: "+310% gesteigerte Markenbekanntheit & Neukunden-Anfragen",
-    company: "IDR Sport Coaching",
-    duration: "02:30 Min",
-    videoId: "pG1QZeO_5Ok",
-    thumb: thumbPG1,
-  },
-  {
-    title: "DOKUMENTATION & MEILENSTEIN-EVENT",
-    desc: "Begleitender Imagefilm zum Firmenjubiläum inklusive Drohnenaufnahmen und ungefilterten Mitarbeiter-Interviews.",
-    kpi: "Ausgezeichnet für beste B2B-Unternehmenskommunikation",
-    company: "Velten & Tönnies",
-    duration: "05:12 Min",
-    videoId: "1srCmXos4lk",
-    thumb: thumb1sr,
+    title: "AUSBILDUNG & ERZIEHERINNEN BERUFSKOLLEG",
+    desc: "Persönliche Einblicke und emotionale Erfahrungsberichte über die Ausbildung an der Bleibergquelle zur gezielten Fachkräfte-Gewinnung.",
+    kpi: "Verdopplung der qualifizierten Bewerbungen für das Ausbildungsjahr",
+    company: "Berufskolleg Bleibergquelle",
+    duration: "03:45 Min",
+    videoId: "HZQn5xHfyOM",
+    thumb: thumbHZQ,
   },
 ];
